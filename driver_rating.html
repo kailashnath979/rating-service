@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Driver Rating</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to [Your Name] Uber Rating Service!</h1>
+        <p>Your personal driver experience awaits. Rate me below!</p>
+
+        <form id="ratingForm">
+            <div class="rating-section">
+                <label for="funnyRating">Humor Rating:</label>
+                <input type="number" id="funnyRating" name="funny" min="1" max="5" step="1">
+            </div>
+
+            <div class="rating-section">
+                <label for="comfortRating">Comfort Level:</label>
+                <input type="number" id="comfortRating" name="comfort" min="1" max="5" step="1">
+            </div>
+
+            <div class="rating-section">
+                <label for="timelinessRating">Timeliness:</label>
+                <input type="number" id="timelinessRating" name="timeliness" min="1" max="5" step="1">
+            </div>
+
+            <div class="rating-section">
+                <label for="conversationRating">Conversation Quality:</label>
+                <input type="number" id="conversationRating" name="conversation" min="1" max="5" step="1">
+            </div>
+
+            <div class="rating-section">
+                <label for="overallRating">Overall Rating:</label>
+                <input type="number" id="overallRating" name="overall" min="1" max="5" step="1">
+            </div>
+
+            <div class="rating-section">
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+            </div>
+
+            <button type="submit">Submit Rating</button>
+        </form>
+
+        <div id="response" class="hidden">
+            <p>Thank you for your feedback! Your rating has been recorded.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p><a href="contact.html">Contact Your Driver</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
