@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Your Driver</title>
+    <link rel="stylesheet" href="rating_service.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Your Highly Rated Driver!</h1>
+        <p>Do you have feedback, complaints, or want to book another fabulous ride with your favorite driver?</p>
+        <p>Feel free to reach out! But please, keep it nice… I’m sensitive.</p>
+
+        <div class="contact-info">
+            <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+            <p>Phone: <span style="text-decoration: line-through;">555-123-Uber</span> (Just kidding, no calls please!)</p>
+        </div>
+
+        <p>Or, if you're old-school, fill out this form and I’ll get back to you ASAP:</p>
+
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p><a href="index.html">Back to Rating</a></p>
+    </div>
+
+    <script>
+        // Simple alert on form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission for demo purposes
+            alert('Thanks for reaching out! Your driver will respond when they’re not too busy being awesome.');
+        });
+    </script>
+</body>
+</html>
