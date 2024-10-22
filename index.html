@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Personal Driver Rating</title>
-    <link rel="stylesheet" href="driver_rating.css">
+    <link rel="stylesheet" href="rating_service.css">
 </head>
 <body>
     <div class="container">
@@ -12,31 +12,67 @@
         <p>Your personal driver experience awaits. Rate me below!</p>
 
         <form id="ratingForm">
+            <!-- Humor Rating -->
             <div class="rating-section">
-                <label for="funnyRating">Humor Rating:</label>
-                <input type="number" id="funnyRating" name="funny" min="1" max="5" step="1">
+                <label>Humor Rating:</label>
+                <div class="stars">
+                    <input type="radio" name="humor" id="humor-5" value="5"><label for="humor-5"></label>
+                    <input type="radio" name="humor" id="humor-4" value="4"><label for="humor-4"></label>
+                    <input type="radio" name="humor" id="humor-3" value="3"><label for="humor-3"></label>
+                    <input type="radio" name="humor" id="humor-2" value="2"><label for="humor-2"></label>
+                    <input type="radio" name="humor" id="humor-1" value="1"><label for="humor-1"></label>
+                </div>
             </div>
 
+            <!-- Comfort Rating -->
             <div class="rating-section">
-                <label for="comfortRating">Comfort Level:</label>
-                <input type="number" id="comfortRating" name="comfort" min="1" max="5" step="1">
+                <label>Comfort Level:</label>
+                <div class="stars">
+                    <input type="radio" name="comfort" id="comfort-5" value="5"><label for="comfort-5"></label>
+                    <input type="radio" name="comfort" id="comfort-4" value="4"><label for="comfort-4"></label>
+                    <input type="radio" name="comfort" id="comfort-3" value="3"><label for="comfort-3"></label>
+                    <input type="radio" name="comfort" id="comfort-2" value="2"><label for="comfort-2"></label>
+                    <input type="radio" name="comfort" id="comfort-1" value="1"><label for="comfort-1"></label>
+                </div>
             </div>
 
+            <!-- Timeliness Rating -->
             <div class="rating-section">
-                <label for="timelinessRating">Timeliness:</label>
-                <input type="number" id="timelinessRating" name="timeliness" min="1" max="5" step="1">
+                <label>Timeliness:</label>
+                <div class="stars">
+                    <input type="radio" name="timeliness" id="timeliness-5" value="5"><label for="timeliness-5"></label>
+                    <input type="radio" name="timeliness" id="timeliness-4" value="4"><label for="timeliness-4"></label>
+                    <input type="radio" name="timeliness" id="timeliness-3" value="3"><label for="timeliness-3"></label>
+                    <input type="radio" name="timeliness" id="timeliness-2" value="2"><label for="timeliness-2"></label>
+                    <input type="radio" name="timeliness" id="timeliness-1" value="1"><label for="timeliness-1"></label>
+                </div>
             </div>
 
+            <!-- Conversation Quality Rating -->
             <div class="rating-section">
-                <label for="conversationRating">Conversation Quality:</label>
-                <input type="number" id="conversationRating" name="conversation" min="1" max="5" step="1">
+                <label>Conversation Quality:</label>
+                <div class="stars">
+                    <input type="radio" name="conversation" id="conversation-5" value="5"><label for="conversation-5"></label>
+                    <input type="radio" name="conversation" id="conversation-4" value="4"><label for="conversation-4"></label>
+                    <input type="radio" name="conversation" id="conversation-3" value="3"><label for="conversation-3"></label>
+                    <input type="radio" name="conversation" id="conversation-2" value="2"><label for="conversation-2"></label>
+                    <input type="radio" name="conversation" id="conversation-1" value="1"><label for="conversation-1"></label>
+                </div>
             </div>
 
+            <!-- Overall Rating -->
             <div class="rating-section">
-                <label for="overallRating">Overall Rating:</label>
-                <input type="number" id="overallRating" name="overall" min="1" max="5" step="1">
+                <label>Overall Rating:</label>
+                <div class="stars">
+                    <input type="radio" name="overall" id="overall-5" value="5"><label for="overall-5"></label>
+                    <input type="radio" name="overall" id="overall-4" value="4"><label for="overall-4"></label>
+                    <input type="radio" name="overall" id="overall-3" value="3"><label for="overall-3"></label>
+                    <input type="radio" name="overall" id="overall-2" value="2"><label for="overall-2"></label>
+                    <input type="radio" name="overall" id="overall-1" value="1"><label for="overall-1"></label>
+                </div>
             </div>
 
+            <!-- Comments Section -->
             <div class="rating-section">
                 <label for="comments">Additional Comments:</label>
                 <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
@@ -54,6 +90,6 @@
         <p><a href="contact.html">Contact Your Driver</a></p>
     </footer>
 
-    <script src="driver_rating.js"></script>
+    <script src="rating_service.js"></script>
 </body>
 </html>
