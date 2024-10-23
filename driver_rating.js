@@ -1,23 +1,36 @@
-document.getElementById('ratingForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+let currentIndex = 0;
+const images = document.querySelectorAll('.slideshow-image');
 
-    // Here you can capture the ratings and handle storage
-    const funny = document.getElementById('funnyRating').value;
-    const comfort = document.getElementById('comfortRating').value;
-    const timeliness = document.getElementById('timelinessRating').value;
-    const conversation = document.getElementById('conversationRating').value;
-    const overall = document.getElementById('overallRating').value;
-    const comments = document.getElementById('comments').value;
+function setRating(category, stars) {
+    alert(`You rated "${category}" with ${stars} star(s)!`);
+}
 
-    console.log({
-        funny, comfort, timeliness, conversation, overall, comments
+function submitRating() {
+    alert("Thank you for your feedback! Here’s a trip down memory lane.");
+    // Additional logic to display images or further actions can be added here
+}
+
+function openModal(imageUrl, captionText) {
+    document.getElementById("modalImage").src = imageUrl;
+    document.getElementById("caption").innerHTML = captionText;
+    document.getElementById("photoModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("photoModal").style.display = "none";
+}
+
+// Slideshow Functionality
+function showSlides() {
+    images.forEach((img, index) => {
+        img.classList.remove('active');
     });
+    currentIndex++;
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+    images[currentIndex].classList.add('active');
+}
 
-    // Store in cookies or localStorage
-    localStorage.setItem('driverRating', JSON.stringify({
-        funny, comfort, timeliness, conversation, overall, comments
-    }));
-
-    // Show response message
-    document.getElementById('response').classList.remove('hidden');
-});
+// Change slides every 5 seconds
+setInterval(showSlides, 5000);
