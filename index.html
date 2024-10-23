@@ -3,66 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate My Visit Experience</title>
     <link rel="stylesheet" href="driver_rating.css">
-    <title>Experience Rating</title>
+    <script defer src="driver_rating.js"></script>
 </head>
 <body>
+    <div class="container">
+        <h1>Rate My Overall Experience!</h1>
+        <p class="description">How was your experience? Rate me below and don’t be shy!</p>
 
-<!-- Slideshow Background -->
-<div class="slideshow-background">
-    <img src="https://github.com/kailashnath979/rating-images/blob/main/pic_9.jpeg?raw=true" class="slideshow-image active" onclick="openModal('https://github.com/kailashnath979/rating-images/blob/main/pic_9.jpeg?raw=true', 'A memorable moment!')">
-    <img src="https://github.com/kailashnath979/rating-images/blob/main/pic_11.jpeg?raw=true" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/blob/main/pic_11.jpeg?raw=true', 'Remember this?')">
-    <img src="https://github.com/kailashnath979/rating-images/blob/main/pic_93.jpeg?raw=true" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/blob/main/pic_3.jpeg?raw=true', 'What a ride!')">
-    <img src="https://github.com/kailashnath979/rating-images/blob/main/pic_10.jpeg?raw=true" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/blob/main/pic_10.jpeg?raw=true', 'Chilling out!')">
-    <img src="https://github.com/kailashnath979/rating-images/blob/main/pic_7.jpeg?raw=true" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/blob/main/pic_7.jpeg?raw=true', 'Our goofy faces!')">
-</div>
+        <div class="rating-container">
+            <h2>Rate My Charm:</h2>
+            <div class="star-rating" id="charmRating">
+                <!-- Star rating -->
+                <span class="star" data-value="1"></span>
+                <span class="star" data-value="2"></span>
+                <span class="star" data-value="3"></span>
+                <span class="star" data-value="4"></span>
+                <span class="star" data-value="5"></span>
+            </div>
 
-<div class="rating-container">
-    <h1>Rate Your Overall Experience!</h1>
-    
-    <!-- Rating Categories -->
-    <div class="rating-category">
-        <label for="humor">Was I a Comedian or Just Corny?</label>
-        <div class="stars" id="humor">
-            <span onclick="setRating('humor', 1)">★</span>
-            <span onclick="setRating('humor', 2)">★</span>
-            <span onclick="setRating('humor', 3)">★</span>
-            <span onclick="setRating('humor', 4)">★</span>
-            <span onclick="setRating('humor', 5)">★</span>
+            <h2>How Comfortable Was It?</h2>
+            <div class="star-rating" id="comfortRating">
+                <!-- Star rating -->
+                <span class="star" data-value="1"></span>
+                <span class="star" data-value="2"></span>
+                <span class="star" data-value="3"></span>
+                <span class="star" data-value="4"></span>
+                <span class="star" data-value="5"></span>
+            </div>
+
+            <h2>Timeliness of the Arrival:</h2>
+            <div class="star-rating" id="timelinessRating">
+                <!-- Star rating -->
+                <span class="star" data-value="1"></span>
+                <span class="star" data-value="2"></span>
+                <span class="star" data-value="3"></span>
+                <span class="star" data-value="4"></span>
+                <span class="star" data-value="5"></span>
+            </div>
+
+            <h2>Overall Experience:</h2>
+            <div class="star-rating" id="overallRating">
+                <!-- Star rating -->
+                <span class="star" data-value="1"></span>
+                <span class="star" data-value="2"></span>
+                <span class="star" data-value="3"></span>
+                <span class="star" data-value="4"></span>
+                <span class="star" data-value="5"></span>
+            </div>
+        </div>
+
+        <h2>Any Additional Comments?</h2>
+        <textarea id="comments" rows="5" placeholder="Say something funny or give me feedback!"></textarea>
+
+        <button id="submitBtn" onclick="submitRating()">Submit</button>
+
+        <div id="thankYouMessage" class="hidden">
+            <p>Thank you for your valuable feedback! I’ll be polishing my skills...</p>
         </div>
     </div>
 
-    <div class="rating-category">
-        <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
-        <div class="stars" id="comfort">
-            <span onclick="setRating('comfort', 1)">★</span>
-            <span onclick="setRating('comfort', 2)">★</span>
-            <span onclick="setRating('comfort', 3)">★</span>
-            <span onclick="setRating('comfort', 4)">★</span>
-            <span onclick="setRating('comfort', 5)">★</span>
-        </div>
-    </div>
-
-    <div class="rating-category">
-        <label for="timeliness">Speed Demon or Late Larry?</label>
-        <div class="stars" id="timeliness">
-            <span onclick="setRating('timeliness', 1)">★</span>
-            <span onclick="setRating('timeliness', 2)">★</span>
-            <span onclick="setRating('timeliness', 3)">★</span>
-            <span onclick="setRating('timeliness', 4)">★</span>
-            <span onclick="setRating('timeliness', 5)">★</span>
-        </div>
-    </div>
-    
-    <button onclick="submitRating()">Submit Rating</button>
-</div>
-
-<div id="photoModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
-
-<script src="driver_rating.js"></script>
+    <footer>
+        <p>Disclaimer: This experience holds no responsibility for cheesy jokes, awkward pauses, or surprise sing-alongs.</p>
+    </footer>
 </body>
 </html>
