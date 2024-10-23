@@ -3,93 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personal Driver Rating</title>
     <link rel="stylesheet" href="driver_rating.css">
+    <script src="driver_rating.js" defer></script>
+    <title>Rate Our Day Together!</title>
 </head>
 <body>
+    <div class="loading-screen">
+        <h1>Analyzing your epic ride experience...</h1>
+        <img src="loading.gif" alt="Loading...">
+    </div>
     <div class="container">
-        <h1>Rate Your Personal Driver Experience!</h1>
-        <p>Your uber-cool driver experience deserves a rating. How many stars can I earn?</p>
-
+        <h1>Rate Our Day Together!</h1>
+        
         <form id="ratingForm">
-            <!-- Humor Rating -->
-            <div class="rating-section">
-                <label>Humor Rating:</label>
-                <div class="stars">
-                    <input type="radio" name="humor" id="humor-5" value="5"><label for="humor-5">&#9733;</label>
-                    <input type="radio" name="humor" id="humor-4" value="4"><label for="humor-4">&#9733;</label>
-                    <input type="radio" name="humor" id="humor-3" value="3"><label for="humor-3">&#9733;</label>
-                    <input type="radio" name="humor" id="humor-2" value="2"><label for="humor-2">&#9733;</label>
-                    <input type="radio" name="humor" id="humor-1" value="1"><label for="humor-1">&#9733;</label>
-                </div>
+            <div class="rating-category">
+                <label for="humor">Was I a Comedian or Just Corny?</label>
+                <div class="stars" data-category="humor"></div>
             </div>
-
-            <!-- Comfort Rating -->
-            <div class="rating-section">
-                <label>Comfort Level:</label>
-                <div class="stars">
-                    <input type="radio" name="comfort" id="comfort-5" value="5"><label for="comfort-5">&#9733;</label>
-                    <input type="radio" name="comfort" id="comfort-4" value="4"><label for="comfort-4">&#9733;</label>
-                    <input type="radio" name="comfort" id="comfort-3" value="3"><label for="comfort-3">&#9733;</label>
-                    <input type="radio" name="comfort" id="comfort-2" value="2"><label for="comfort-2">&#9733;</label>
-                    <input type="radio" name="comfort" id="comfort-1" value="1"><label for="comfort-1">&#9733;</label>
-                </div>
+            <div class="rating-category">
+                <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
+                <div class="stars" data-category="comfort"></div>
             </div>
-
-            <!-- Timeliness Rating -->
-            <div class="rating-section">
-                <label>Timeliness:</label>
-                <div class="stars">
-                    <input type="radio" name="timeliness" id="timeliness-5" value="5"><label for="timeliness-5">&#9733;</label>
-                    <input type="radio" name="timeliness" id="timeliness-4" value="4"><label for="timeliness-4">&#9733;</label>
-                    <input type="radio" name="timeliness" id="timeliness-3" value="3"><label for="timeliness-3">&#9733;</label>
-                    <input type="radio" name="timeliness" id="timeliness-2" value="2"><label for="timeliness-2">&#9733;</label>
-                    <input type="radio" name="timeliness" id="timeliness-1" value="1"><label for="timeliness-1">&#9733;</label>
-                </div>
+            <div class="rating-category">
+                <label for="timeliness">Speed Demon or Late Larry?</label>
+                <div class="stars" data-category="timeliness"></div>
             </div>
-
-            <!-- Conversation Quality Rating -->
-            <div class="rating-section">
-                <label>Conversation Quality:</label>
-                <div class="stars">
-                    <input type="radio" name="conversation" id="conversation-5" value="5"><label for="conversation-5">&#9733;</label>
-                    <input type="radio" name="conversation" id="conversation-4" value="4"><label for="conversation-4">&#9733;</label>
-                    <input type="radio" name="conversation" id="conversation-3" value="3"><label for="conversation-3">&#9733;</label>
-                    <input type="radio" name="conversation" id="conversation-2" value="2"><label for="conversation-2">&#9733;</label>
-                    <input type="radio" name="conversation" id="conversation-1" value="1"><label for="conversation-1">&#9733;</label>
-                </div>
+            <div class="overall-rating">
+                <label for="overall">Overall Experience</label>
+                <div class="stars" data-category="overall"></div>
             </div>
-
-            <!-- Overall Rating -->
-            <div class="rating-section">
-                <label>Overall Rating:</label>
-                <div class="stars">
-                    <input type="radio" name="overall" id="overall-5" value="5"><label for="overall-5">&#9733;</label>
-                    <input type="radio" name="overall" id="overall-4" value="4"><label for="overall-4">&#9733;</label>
-                    <input type="radio" name="overall" id="overall-3" value="3"><label for="overall-3">&#9733;</label>
-                    <input type="radio" name="overall" id="overall-2" value="2"><label for="overall-2">&#9733;</label>
-                    <input type="radio" name="overall" id="overall-1" value="1"><label for="overall-1">&#9733;</label>
-                </div>
-            </div>
-
-            <!-- Comments Section -->
-            <div class="rating-section">
-                <label for="comments">Additional Comments:</label>
-                <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
-            </div>
-
+            <textarea id="comment" placeholder="Any additional comments?"></textarea>
             <button type="submit">Submit Rating</button>
         </form>
+        
+        <div class="thank-you" style="display:none;"></div>
 
-        <div id="response" class="hidden">
-            <p>Thank you for your feedback! Your rating has been recorded.</p>
+        <div class="photo-gallery">
+            <h2>Memorable Moments from Our Day</h2>
+            <div class="gallery"></div>
         </div>
     </div>
-
     <footer>
-        <p><a href="contact.html">Contact Your Driver</a></p>
+        <p>Disclaimer: This driver holds no responsibility for bad jokes or unexpected sing-alongs during the ride.</p>
     </footer>
-
-    <script src="driver_rating.js"></script>
 </body>
 </html>
