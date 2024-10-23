@@ -1,78 +1,106 @@
+/* Body and container styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: url('https://source.unsplash.com/1600x900/?road,travel') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #fff;
     text-align: center;
-    background-color: #f4f4f4;
 }
 
 .container {
-    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 50px auto;
     padding: 20px;
     max-width: 600px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
-h1 {
+h1, label {
     font-size: 24px;
-    color: #333;
 }
 
-.rating-section {
-    margin: 20px 0;
-}
-
-label {
-    display: block;
+p {
     font-size: 18px;
+    color: #d3d3d3;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+/* Form sections */
+.rating-section {
+    margin-bottom: 25px;
 }
 
 textarea {
     padding: 8px;
     font-size: 16px;
     width: 100%;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    box-shadow: 0 0 10px #ff9800;
+    outline: none;
+}
+
+/* Star rating styling */
+.stars {
+    display: inline-flex;
+    justify-content: center;
+    direction: rtl; /* To reverse the star order for intuitive rating */
+}
+
+.stars input {
+    display: none; /* Hide the radio buttons */
+}
+
+.stars label {
+    font-size: 30px;
+    color: #444;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.stars label:hover, 
+.stars label:hover ~ label,
+.stars input:checked ~ label {
+    color: #ff9800; /* Gold color for selected stars */
 }
 
+/* Footer */
 footer {
     margin-top: 20px;
+    font-size: 16px;
 }
 
-.hidden {
-    display: none;
-}
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 
-/* Star Rating Styling */
-.stars {
-    display: flex;
-    justify-content: center;
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    font-size: 30px;
-    color: #ddd;
-    cursor: pointer;
-}
-
-label:hover,
-label:hover ~ label,
-input[type="radio"]:checked ~ label {
-    color: #ffd700;
+    button {
+        font-size: 16px;
+    }
 }
