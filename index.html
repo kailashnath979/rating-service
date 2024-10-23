@@ -1,76 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rate My Visit Experience</title>
+    <title>Rate My Visit</title>
     <link rel="stylesheet" href="driver_rating.css">
-    <script defer src="driver_rating.js"></script>
+    <script src="driver_rating.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Rate My Overall Experience!</h1>
-        <p class="description">How was your experience? Rate me below and don’t be shy!</p>
+    <header>
+        <h1>Rate Your Experience</h1>
+    </header>
 
-        <div class="rating-container">
-            <h2>Rate My Charm:</h2>
-            <div class="star-rating" id="charmRating">
-                <!-- Star rating -->
-                <span class="star" data-value="1"></span>
-                <span class="star" data-value="2"></span>
-                <span class="star" data-value="3"></span>
-                <span class="star" data-value="4"></span>
-                <span class="star" data-value="5"></span>
+    <main>
+        <section class="rating-section">
+            <h2>How was your overall experience?</h2>
+            <div class="star-rating">
+                <span class="star" onclick="setRating(1)">&#9733;</span>
+                <span class="star" onclick="setRating(2)">&#9733;</span>
+                <span class="star" onclick="setRating(3)">&#9733;</span>
+                <span class="star" onclick="setRating(4)">&#9733;</span>
+                <span class="star" onclick="setRating(5)">&#9733;</span>
             </div>
+            <p id="rating-feedback"></p>
+        </section>
 
-            <h2>How Comfortable Was It?</h2>
-            <div class="star-rating" id="comfortRating">
-                <!-- Star rating -->
-                <span class="star" data-value="1"></span>
-                <span class="star" data-value="2"></span>
-                <span class="star" data-value="3"></span>
-                <span class="star" data-value="4"></span>
-                <span class="star" data-value="5"></span>
+        <section class="categories-section">
+            <h2>Rate Specific Areas</h2>
+            <div class="category">
+                <label for="humor">Was I a Comedian or Just Corny?</label>
+                <div class="star-rating" id="humor">
+                    <span class="star" onclick="setCategoryRating('humor', 1)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('humor', 2)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('humor', 3)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('humor', 4)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('humor', 5)">&#9733;</span>
+                </div>
             </div>
-
-            <h2>Timeliness of the Arrival:</h2>
-            <div class="star-rating" id="timelinessRating">
-                <!-- Star rating -->
-                <span class="star" data-value="1"></span>
-                <span class="star" data-value="2"></span>
-                <span class="star" data-value="3"></span>
-                <span class="star" data-value="4"></span>
-                <span class="star" data-value="5"></span>
+            <div class="category">
+                <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
+                <div class="star-rating" id="comfort">
+                    <span class="star" onclick="setCategoryRating('comfort', 1)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('comfort', 2)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('comfort', 3)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('comfort', 4)">&#9733;</span>
+                    <span class="star" onclick="setCategoryRating('comfort', 5)">&#9733;</span>
+                </div>
             </div>
+        </section>
 
-            <h2>Overall Experience:</h2>
-            <div class="star-rating" id="overallRating">
-                <!-- Star rating -->
-                <span class="star" data-value="1"></span>
-                <span class="star" data-value="2"></span>
-                <span class="star" data-value="3"></span>
-                <span class="star" data-value="4"></span>
-                <span class="star" data-value="5"></span>
-            </div>
-        </div>
-
-        <h2>Any Additional Comments?</h2>
-        <textarea id="comments" rows="5" placeholder="Say something funny or give me feedback!"></textarea>
-
-        <button id="submitBtn" onclick="submitRating()">Submit</button>
-
-        <div id="thankYouMessage" class="hidden">
-            <p>Thank you for your valuable feedback! I’ll be polishing my skills...</p>
-        </div>
-
-        <!-- Contact page link -->
-        <div class="contact-link">
-            <p>Want to reach out? <a href="contact.html">Go to Contact Page</a></p>
-        </div>
-    </div>
+        <section class="comment-box">
+            <h2>Leave a Comment!</h2>
+            <textarea id="comment" placeholder="Write something fun..."></textarea>
+        </section>
+    </main>
 
     <footer>
-        <p>Disclaimer: This experience holds no responsibility for cheesy jokes, awkward pauses, or surprise sing-alongs.</p>
+        <p>Disclaimer: This experience holds no responsibility for unexpected laughs or corny jokes.</p>
     </footer>
+
+    <div id="easter-egg" class="hidden">
+        <p>You've found an easter egg! Here's a bonus joke: Why did the scarecrow win an award? Because he was outstanding in his field!</p>
+    </div>
+
 </body>
 </html>
