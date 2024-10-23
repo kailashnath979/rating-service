@@ -4,47 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="driver_rating.css">
-    <script src="driver_rating.js" defer></script>
-    <title>Rate Our Day Together!</title>
+    <title>Experience Rating</title>
 </head>
 <body>
-    <div class="loading-screen">
-        <h1>Analyzing your epic ride experience...</h1>
-        <img src="loading.gif" alt="Loading...">
-    </div>
-    <div class="container">
-        <h1>Rate Our Day Together!</h1>
-        
-        <form id="ratingForm">
-            <div class="rating-category">
-                <label for="humor">Was I a Comedian or Just Corny?</label>
-                <div class="stars" data-category="humor"></div>
-            </div>
-            <div class="rating-category">
-                <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
-                <div class="stars" data-category="comfort"></div>
-            </div>
-            <div class="rating-category">
-                <label for="timeliness">Speed Demon or Late Larry?</label>
-                <div class="stars" data-category="timeliness"></div>
-            </div>
-            <div class="overall-rating">
-                <label for="overall">Overall Experience</label>
-                <div class="stars" data-category="overall"></div>
-            </div>
-            <textarea id="comment" placeholder="Any additional comments?"></textarea>
-            <button type="submit">Submit Rating</button>
-        </form>
-        
-        <div class="thank-you" style="display:none;"></div>
 
-        <div class="photo-gallery">
-            <h2>Memorable Moments from Our Day</h2>
-            <div class="gallery"></div>
+<!-- Slideshow Background -->
+<div class="slideshow-background">
+    <img src="IMAGE_URL_1" class="slideshow-image active" onclick="openModal('https://github.com/kailashnath979/rating-images/raw/main/pic_9.jpeg', 'A memorable moment!')">
+    <img src="IMAGE_URL_2" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/raw/main/pic_11.jpeg', 'Remember this?')">
+    <img src="IMAGE_URL_3" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/raw/main/pic_3.jpeg', 'What a ride!')">
+    <img src="IMAGE_URL_4" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/raw/main/pic_10.jpeg', 'Chilling out!')">
+    <img src="IMAGE_URL_5" class="slideshow-image" onclick="openModal('https://github.com/kailashnath979/rating-images/raw/main/pic_7.jpeg', 'Our goofy faces!')">
+</div>
+
+<div class="rating-container">
+    <h1>Rate Your Overall Experience!</h1>
+    
+    <!-- Rating Categories -->
+    <div class="rating-category">
+        <label for="humor">Was I a Comedian or Just Corny?</label>
+        <div class="stars" id="humor">
+            <span onclick="setRating('humor', 1)">★</span>
+            <span onclick="setRating('humor', 2)">★</span>
+            <span onclick="setRating('humor', 3)">★</span>
+            <span onclick="setRating('humor', 4)">★</span>
+            <span onclick="setRating('humor', 5)">★</span>
         </div>
     </div>
-    <footer>
-        <p>Disclaimer: This driver holds no responsibility for bad jokes or unexpected sing-alongs during the ride.</p>
-    </footer>
+
+    <div class="rating-category">
+        <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
+        <div class="stars" id="comfort">
+            <span onclick="setRating('comfort', 1)">★</span>
+            <span onclick="setRating('comfort', 2)">★</span>
+            <span onclick="setRating('comfort', 3)">★</span>
+            <span onclick="setRating('comfort', 4)">★</span>
+            <span onclick="setRating('comfort', 5)">★</span>
+        </div>
+    </div>
+
+    <div class="rating-category">
+        <label for="timeliness">Speed Demon or Late Larry?</label>
+        <div class="stars" id="timeliness">
+            <span onclick="setRating('timeliness', 1)">★</span>
+            <span onclick="setRating('timeliness', 2)">★</span>
+            <span onclick="setRating('timeliness', 3)">★</span>
+            <span onclick="setRating('timeliness', 4)">★</span>
+            <span onclick="setRating('timeliness', 5)">★</span>
+        </div>
+    </div>
+    
+    <button onclick="submitRating()">Submit Rating</button>
+</div>
+
+<!-- Photo Modal Example -->
+<div id="photoModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+</div>
+
+<script src="driver_rating.js"></script>
 </body>
 </html>
