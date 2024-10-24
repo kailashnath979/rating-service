@@ -3,61 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overall Experience Rating</title>
+    <title>Driver Rating</title>
     <link rel="stylesheet" href="driver_rating.css">
-    <script src="driver_rating.js" defer></script>
+    <script defer src="driver_rating.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>How Was Your Overall Experience?</h1>
-            <nav>
-                <a href="contact.html">Need to reach out? Click here!</a>
-            </nav>
-        </header>
+    <h1 id="page-title">Rate Your Driver Experience!</h1>
 
-        <section class="rating-section">
-            <h2>Rate My Service!</h2>
-            <div class="rating">
-                <div class="rating-category">
-                    <span>Was I a Comedian or Just Corny?</span>
-                    <div class="stars" data-category="humor">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-                </div>
-
-                <div class="rating-category">
-                    <span>Chill Factor: Like a Couch or a Roller Coaster?</span>
-                    <div class="stars" data-category="comfort">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-                </div>
-
-                <div class="rating-category">
-                    <span>Speed Demon or Late Larry?</span>
-                    <div class="stars" data-category="timeliness">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-                </div>
-            </div>
-            <button id="submit-rating">Submit Rating</button>
-            <div id="feedback-message"></div>
-        </section>
+    <div class="rating-category" data-selected-value="">
+        <h2>Was I a Comedian or Just Corny?</h2>
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
     </div>
+
+    <div class="rating-category" data-selected-value="">
+        <h2>How Smooth was the Ride?</h2>
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+
+    <div class="rating-category" data-selected-value="">
+        <h2>Would You Call Again?</h2>
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+
+    <button id="submit-rating">Submit Rating</button>
+    <div id="feedback-message"></div>
+
+    <div>
+        <h2>Leave Your Comments!</h2>
+        <textarea id="comment-box" placeholder="Enter your comments here..."></textarea>
+        <button id="submit-comment">Submit Comment</button>
+    </div>
+
+    <nav>
+        <a href="contact.html">Need to reach out? Click here!</a>
+    </nav>
+
+
+    <img id="car-icon" src="car.png" alt="Car Icon" />
+
     <footer>
-        <p>Disclaimer: This driver holds no responsibility for bad jokes or unexpected sing-alongs during the ride.</p>
+        <p>Disclaimer: Your ratings might make me a better driver, but they won't make me a better comedian! 😂</p>
+        <p><a href="contact.html">Have something funny to say? Contact me here!</a></p>
     </footer>
 </body>
 </html>
