@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         feedbackMessage.style.display = 'block';
     }
 
-    // Easter eggs (example for clicking on the title)
+    // Easter egg: Clicking on the title triggers a surprise message
     document.getElementById('page-title').addEventListener('click', () => {
         alert("Surprise! You've found an Easter Egg! 👀");
     });
@@ -61,5 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('mousemove', (e) => {
         carIcon.style.left = `${e.pageX}px`;
         carIcon.style.top = `${e.pageY}px`;
+    });
+
+    // Adding comment box functionality
+    const commentBox = document.getElementById('comment-box');
+    document.getElementById('submit-comment').addEventListener('click', () => {
+        const comment = commentBox.value.trim();
+        if (comment) {
+            alert("Comment submitted: " + comment);
+            commentBox.value = '';  // Clear the comment box
+        } else {
+            alert("Please enter a comment before submitting.");
+        }
     });
 });
