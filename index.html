@@ -3,51 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rating Experience</title>
+    <title>Your Epic Experience Rating</title>
     <link rel="stylesheet" href="driver_rating.css">
 </head>
 <body>
-    <div class="container">
-        <h1>How Was Your Experience?</h1>
-        <p>Please rate your overall experience below:</p>
+    <div class="background">
+        <div class="container">
+            <header>
+                <h1>Your Epic Experience Rating</h1>
+                <nav>
+                    <a href="contact.html">Need to chat? Hit me up!</a>
+                </nav>
+            </header>
 
-        <div class="rating-container">
-            <div class="rating-category">
-                <label for="humor">Was I a Comedian or Just Corny?</label>
-                <div class="stars" data-category="humor" onclick="selectRating(this)">
-                    <span class="star" data-value="1">⭐</span>
-                    <span class="star" data-value="2">⭐</span>
-                    <span class="star" data-value="3">⭐</span>
-                    <span class="star" data-value="4">⭐</span>
-                    <span class="star" data-value="5">⭐</span>
-                </div>
-            </div>
-            <div class="rating-category">
-                <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
-                <div class="stars" data-category="comfort" onclick="selectRating(this)">
-                    <span class="star" data-value="1">⭐</span>
-                    <span class="star" data-value="2">⭐</span>
-                    <span class="star" data-value="3">⭐</span>
-                    <span class="star" data-value="4">⭐</span>
-                    <span class="star" data-value="5">⭐</span>
-                </div>
-            </div>
-            <div class="rating-category">
-                <label for="timeliness">Speed Demon or Late Larry?</label>
-                <div class="stars" data-category="timeliness" onclick="selectRating(this)">
-                    <span class="star" data-value="1">⭐</span>
-                    <span class="star" data-value="2">⭐</span>
-                    <span class="star" data-value="3">⭐</span>
-                    <span class="star" data-value="4">⭐</span>
-                    <span class="star" data-value="5">⭐</span>
-                </div>
-            </div>
+            <main>
+                <section class="rating-section">
+                    <h2>How Was Your Experience?</h2>
+                    <div class="rating">
+                        <h3>Rate My Overall Service</h3>
+                        <div class="stars" id="starRating">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <p id="ratingMessage"></p>
+                    </div>
+
+                    <div class="category-ratings">
+                        <h3>Category Ratings</h3>
+                        <div>
+                            <label>Was I a Comedian or Just Corny? </label>
+                            <div class="stars" data-category="humor" id="humorRating">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Chill Factor: Like a Couch or a Roller Coaster? </label>
+                            <div class="stars" data-category="comfort" id="comfortRating">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Speed Demon or Late Larry? </label>
+                            <div class="stars" data-category="timeliness" id="timelinessRating">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="submitRating">Submit Rating</button>
+                </section>
+
+                <section class="thank-you-message" id="thankYouMessage" style="display:none;">
+                    <h2>Thank You!</h2>
+                    <p>Your feedback is valuable. I'll be polishing my skills for our next adventure!</p>
+                </section>
+            </main>
+
+            <footer>
+                <p>Disclaimer: This driver holds no responsibility for bad jokes or unexpected sing-alongs during the ride.</p>
+            </footer>
         </div>
-
-        <button id="submit">Submit Rating</button>
-        <p id="feedback-message"></p>
-        
-        <p>Want to reach out? <a href="contact.html">Click here to contact your favorite driver!</a></p>
     </div>
 
     <script src="driver_rating.js"></script>
