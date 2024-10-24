@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const stars = document.querySelectorAll('.star');
-    const feedbackMessage = document.getElementById('feedback-message');
+    // Handle star rating functionality for multiple categories
+    const ratingCategories = document.querySelectorAll('.rating-category');
 
-    stars.forEach(star => {
-        star.addEventListener('mouseover', () => {
-            const category = star.parentElement.dataset.category;
-            highlightStars(stars, star.dataset.value);
-        });
+    ratingCategories.forEach(category => {
+        const stars = category.querySelectorAll('.star');
+        
+        stars.forEach(star => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(stars, star.dataset.value);
+            });
 
-        star.addEventListener('mouseleave', () => {
-            resetStars(stars);
-        });
+            star.addEventListener('mouseleave', () => {
+                resetStars(stars);
+                const selectedValue = category.dataset.selectedValue;
+                if (selectedValue) {
+                    highlightStars(stars, selectedValue);
+                }
+            });
 
-        star.addEventListener('click', () => {
-            selectStars(stars, star.dataset.value);
+            star.addEventListener('click', () => {
+                category.dataset.selectedValue = star.dataset.value;
+                highlightStars(stars, star.dataset.value);
+            });
         });
     });
 
@@ -36,16 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function selectStars(stars, value) {
-        stars.forEach(s => {
-            s.classList.remove('selected');
-            if (s.dataset.value <= value) {
-                s.classList.add('selected');
-            }
-        });
+    // Fun feedback message after rating is submitted
+    function displayFeedback() {
+        const feedbackMessage = document.getElementById('feedback-message');
+        feedbackMessage.textContent = "Thank you for your feedback! I’ll work on my charm and driving skills!";
+        feedbackMessage.style.display = 'block';
     }
 
-    function displayFeedback() {
-        feedbackMessage.textContent = "Thank you for your feedback! I’ll work on my charm and driving skills!";
-    }
+    // Easter eggs (example for clicking on the title)
+    document.getElementById('page-title').addEventListener('click', () => {
+        alert("Surprise! You've found an Easter Egg! 👀");
+    });
+
+    // Interactive car following cursor
+    const carIcon = document.getElementById('car-icon');
+    document.addEventListener('mousemove', (e) => {
+        carIcon.style.left = `${e.pageX}px`;
+        carIcon.style.top = `${e.pageY}px`;
+    });
 });
