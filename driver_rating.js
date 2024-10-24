@@ -1,29 +1,43 @@
-document.getElementById('submit').addEventListener('click', function() {
-    const categories = document.querySelectorAll('.rating-category');
-    let feedback = '';
+document.addEventListener('DOMContentLoaded', () => {
+    const starRating = document.querySelectorAll('#starRating .star');
+    const ratingMessage = document.getElementById('ratingMessage');
+    let overallRating = 0;
 
-    categories.forEach(category => {
-        const stars = category.querySelector('.stars');
-        const selectedStar = Array.from(stars.children).find(star => star.classList.contains('selected'));
-        if (selectedStar) {
-            feedback += `${category.querySelector('label').innerText}: ${selectedStar.getAttribute('data-value')} stars\n`;
-        }
+    starRating.forEach(star => {
+        star.addEventListener('click', () => {
+            overallRating = star.getAttribute('data-value');
+            ratingMessage.innerText = `You rated me ${overallRating} star(s)!`;
+            highlightStars(starRating, overallRating);
+        });
     });
 
-    if (feedback) {
-        document.getElementById('feedback-message').innerText = 'Thank you for your feedback!\n' + feedback;
-    } else {
-        document.getElementById('feedback-message').innerText = 'Please select ratings for all categories!';
-    }
-});
+    document.getElementById('submitRating').addEventListener('click', () => {
+        if (overallRating === 0) {
+            alert("Please select an overall rating before submitting!");
+            return;
+        }
+        document.querySelector('.rating-section').style.display = 'none';
+        document.getElementById('thankYouMessage').style.display = 'block';
+    });
 
-function selectRating(element) {
-    const stars = element.children;
-    for (let star of stars) {
-        star.classList.remove('selected');
+    function highlightStars(stars, rating) {
+        stars.forEach(star => {
+            if (star.getAttribute('data-value') <= rating) {
+                star.classList.add('highlight');
+            } else {
+                star.classList.remove('highlight');
+            }
+        });
     }
-    const value = event.target.getAttribute('data-value');
-    for (let i = 0; i < value; i++) {
-        stars[i].classList.add('selected');
-    }
-}
+
+    // Category Ratings
+    const categoryRatings = ['humor', 'comfort', 'timeliness'];
+    categoryRatings.forEach(category => {
+        const stars = document.querySelector(`#${category}Rating .star`);
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                highlightStars(document.querySelectorAll(`#${category}Rating .star`), star.getAttribute('data-value'));
+            });
+        });
+    });
+});
