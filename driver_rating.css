@@ -58,6 +58,7 @@ footer p {
     background-image: url('car.png'); /* Placeholder image */
     background-size: contain;
     pointer-events: none;
+    visibility: hidden;
 }
 
 /* Easter egg hint */
