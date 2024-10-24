@@ -1,43 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const starRating = document.querySelectorAll('#starRating .star');
-    const ratingMessage = document.getElementById('ratingMessage');
-    let overallRating = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    const stars = document.querySelectorAll('.star');
+    const feedbackMessage = document.getElementById('feedback-message');
 
-    starRating.forEach(star => {
+    stars.forEach(star => {
+        star.addEventListener('mouseover', () => {
+            const category = star.parentElement.dataset.category;
+            highlightStars(stars, star.dataset.value);
+        });
+
+        star.addEventListener('mouseleave', () => {
+            resetStars(stars);
+        });
+
         star.addEventListener('click', () => {
-            overallRating = star.getAttribute('data-value');
-            ratingMessage.innerText = `You rated me ${overallRating} star(s)!`;
-            highlightStars(starRating, overallRating);
+            selectStars(stars, star.dataset.value);
         });
     });
 
-    document.getElementById('submitRating').addEventListener('click', () => {
-        if (overallRating === 0) {
-            alert("Please select an overall rating before submitting!");
-            return;
-        }
-        document.querySelector('.rating-section').style.display = 'none';
-        document.getElementById('thankYouMessage').style.display = 'block';
+    document.getElementById('submit-rating').addEventListener('click', () => {
+        displayFeedback();
     });
 
-    function highlightStars(stars, rating) {
-        stars.forEach(star => {
-            if (star.getAttribute('data-value') <= rating) {
-                star.classList.add('highlight');
-            } else {
-                star.classList.remove('highlight');
+    function highlightStars(stars, value) {
+        stars.forEach(s => {
+            s.classList.remove('selected');
+            if (s.dataset.value <= value) {
+                s.classList.add('selected');
             }
         });
     }
 
-    // Category Ratings
-    const categoryRatings = ['humor', 'comfort', 'timeliness'];
-    categoryRatings.forEach(category => {
-        const stars = document.querySelector(`#${category}Rating .star`);
+    function resetStars(stars) {
         stars.forEach(star => {
-            star.addEventListener('click', () => {
-                highlightStars(document.querySelectorAll(`#${category}Rating .star`), star.getAttribute('data-value'));
-            });
+            star.classList.remove('selected');
         });
-    });
+    }
+
+    function selectStars(stars, value) {
+        stars.forEach(s => {
+            s.classList.remove('selected');
+            if (s.dataset.value <= value) {
+                s.classList.add('selected');
+            }
+        });
+    }
+
+    function displayFeedback() {
+        feedbackMessage.textContent = "Thank you for your feedback! I’ll work on my charm and driving skills!";
+    }
 });
