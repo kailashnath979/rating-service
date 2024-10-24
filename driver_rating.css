@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://example.com/atlanta-cityscape.jpg'); /* Placeholder for cityscape */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.rating-category {
+    margin: 20px 0;
+}
+
+.stars {
+    cursor: pointer;
+}
+
+.star {
+    font-size: 24px;
+    margin: 0 2px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff4500;
+}

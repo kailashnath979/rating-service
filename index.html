@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Experience</title>
+    <link rel="stylesheet" href="driver_rating.css">
+</head>
+<body>
+    <div class="container">
+        <h1>How Was Your Experience?</h1>
+        <p>Please rate your overall experience below:</p>
+
+        <div class="rating-container">
+            <div class="rating-category">
+                <label for="humor">Was I a Comedian or Just Corny?</label>
+                <div class="stars" data-category="humor" onclick="selectRating(this)">
+                    <span class="star" data-value="1">⭐</span>
+                    <span class="star" data-value="2">⭐</span>
+                    <span class="star" data-value="3">⭐</span>
+                    <span class="star" data-value="4">⭐</span>
+                    <span class="star" data-value="5">⭐</span>
+                </div>
+            </div>
+            <div class="rating-category">
+                <label for="comfort">Chill Factor: Like a Couch or a Roller Coaster?</label>
+                <div class="stars" data-category="comfort" onclick="selectRating(this)">
+                    <span class="star" data-value="1">⭐</span>
+                    <span class="star" data-value="2">⭐</span>
+                    <span class="star" data-value="3">⭐</span>
+                    <span class="star" data-value="4">⭐</span>
+                    <span class="star" data-value="5">⭐</span>
+                </div>
+            </div>
+            <div class="rating-category">
+                <label for="timeliness">Speed Demon or Late Larry?</label>
+                <div class="stars" data-category="timeliness" onclick="selectRating(this)">
+                    <span class="star" data-value="1">⭐</span>
+                    <span class="star" data-value="2">⭐</span>
+                    <span class="star" data-value="3">⭐</span>
+                    <span class="star" data-value="4">⭐</span>
+                    <span class="star" data-value="5">⭐</span>
+                </div>
+            </div>
+        </div>
+
+        <button id="submit">Submit Rating</button>
+        <p id="feedback-message"></p>
+        
+        <p>Want to reach out? <a href="contact.html">Click here to contact your favorite driver!</a></p>
+    </div>
+
+    <script src="driver_rating.js"></script>
+</body>
+</html>
