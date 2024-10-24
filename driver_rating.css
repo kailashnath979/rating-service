@@ -1,47 +1,74 @@
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('https://example.com/atlanta-cityscape.jpg'); /* Placeholder for cityscape */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: url('https://your-atlanta-background-image-url.com') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
-    text-align: center;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 80%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    color: #FF6347;
 }
 
-.rating-category {
+nav a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rating-section {
     margin: 20px 0;
 }
 
 .stars {
+    display: inline-block;
     cursor: pointer;
 }
 
 .star {
-    font-size: 24px;
-    margin: 0 2px;
+    font-size: 2rem;
+    color: #FFD700;
+    transition: transform 0.2s;
+}
+
+.star:hover {
+    transform: scale(1.5);
+}
+
+.category-ratings {
+    margin-top: 20px;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #ff6347;
-    border: none;
+    background-color: #FF6347;
     color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff4500;
+    background-color: #FF4500;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
 }
