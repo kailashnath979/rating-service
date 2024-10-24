@@ -1,62 +1,106 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
-    background: url('https://example.com/your-atlanta-cityscape-background.jpg') no-repeat center center fixed;
+    background: url('cityscape-atlanta.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
+    color: #333;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
 }
 
-header {
+h1, h2 {
     text-align: center;
+    color: #444;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-nav a {
-    color: #ffd700;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-.rating-section {
-    margin: 20px 0;
-}
-
-.rating-category {
-    margin: 10px 0;
-}
-
-.stars {
-    display: flex;
-    cursor: pointer;
-}
-
+/* Rating star styles */
 .star {
-    font-size: 2em;
-    color: gray; /* Default color */
+    font-size: 2.5em;
+    color: gray; /* Default star color */
+    cursor: pointer;
     transition: color 0.2s;
 }
 
-.star:hover,
 .star.selected {
-    color: gold; /* Selected color */
+    color: gold; /* Selected star color */
 }
 
-footer {
+.rating-category {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Feedback message */
+#feedback-message {
+    display: none;
     text-align: center;
     margin-top: 20px;
+    font-size: 1.2em;
+    color: green;
+}
+
+/* Footer with funny disclaimer */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 50px;
 }
 
 footer p {
-    font-size: 0.9em;
+    margin: 0;
+}
+
+/* Interactive car icon */
+#car-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('car.png');
+    background-size: contain;
+    pointer-events: none;
+}
+
+/* Easter egg hint */
+#page-title {
+    cursor: pointer;
+    color: #f39c12;
+}
+
+/* Button styling */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Transition and animation for more creativity */
+.rating-category .star {
+    transition: transform 0.2s;
+}
+
+.rating-category .star:hover {
+    transform: scale(1.2);
+}
+
+/* Comment box styling */
+#comment-box {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
 }
