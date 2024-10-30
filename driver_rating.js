@@ -1,54 +1,61 @@
 // Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", function() {
-    emailjs.init("pbZkQxJOSeedyqYq5"); // Replace with your EmailJS user ID
+    emailjs.init("pbZkQxJOSeedyqYq5");
 
     const starRatings = document.querySelectorAll(".rating-category");
-    const commentBox = document.getElementById("comment");
-    const submitButton = document.getElementById("submit-rating");
+    const comments = document.querySelector("#comment");
+    const submitButton = document.querySelector("#submit-rating");
+    const quirkyMessage = document.querySelector("#quirky-message");
+    const carIcon = document.getElementById("car-icon"); // Assuming you have the car icon in your HTML
 
-    if (!starRatings || !commentBox || !submitButton) {
+    if (!starRatings || !comments || !submitButton || !quirkyMessage) {
         console.error("Required elements not found in the DOM.");
         return;
     }
 
-    // Loop through each rating section to add hover and click functionality
+    // Loop through each rating section
     starRatings.forEach((ratingSection) => {
         const stars = ratingSection.querySelectorAll(".star");
 
+        if (stars.length === 0) {
+            console.error("No stars found in rating section.");
+            return;
+        }
+
+        // Add event listeners for hover and click
         stars.forEach((star, index) => {
-            // Highlight stars on hover
+            // Handle hover effect
             star.addEventListener("mouseover", function() {
                 highlightStars(stars, index);
             });
 
             // Reset stars when mouse leaves
             star.addEventListener("mouseleave", function() {
-                resetStars(stars, ratingSection);
+                resetStars(stars);
             });
 
-            // Set rating on click
+            // Handle click to set rating
             star.addEventListener("click", function() {
                 setRating(stars, index + 1, ratingSection);
             });
         });
     });
 
-    // Highlight stars up to the hovered one
+    // Function to highlight stars up to the hovered one
     function highlightStars(stars, index) {
         stars.forEach((star, i) => {
             star.classList.toggle("highlighted", i <= index);
         });
     }
 
-    // Reset stars to previously selected rating or to default if none selected
-    function resetStars(stars, ratingSection) {
-        const selectedRating = ratingSection.getAttribute("data-selected-rating");
-        stars.forEach((star, i) => {
-            star.classList.toggle("highlighted", i < selectedRating);
+    // Function to reset star highlights
+    function resetStars(stars) {
+        stars.forEach((star) => {
+            star.classList.remove("highlighted");
         });
     }
 
-    // Set and display the selected rating
+    // Function to set and display the selected rating
     function setRating(stars, rating, ratingSection) {
         ratingSection.setAttribute("data-selected-rating", rating);
         stars.forEach((star, i) => {
@@ -56,11 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Collect selected ratings for each category
+    // Collect all selected ratings for each category
     function getSelectedRatings() {
         const ratings = {};
         starRatings.forEach((section) => {
-            const category = section.querySelector("h3").innerText;
+            const category = section.querySelector("h3").textContent;
             const rating = section.getAttribute("data-selected-rating") || "0";
             ratings[category] = rating;
         });
@@ -70,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle form submission
     submitButton.addEventListener("click", function() {
         const selectedRatings = getSelectedRatings();
-        const userComment = commentBox.value;
+        const userComment = comments.value;
 
         // Check if all categories have been rated
         if (Object.values(selectedRatings).includes("0")) {
@@ -78,77 +85,36 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
+        // Display quirky message
+        quirkyMessage.textContent = "Sending your thoughts... 🚗💨";
+        moveCarIcon();
+
         // Send email with ratings and comments using EmailJS
         emailjs.send("service_rwzse8w", "template_goneji6", {
             rating_chill: selectedRatings["Chill Factor"],
             rating_timeliness: selectedRatings["Timeliness"],
-            rating_entertainment: selectedRatings["Overall Experience"],
+            rating_experience: selectedRatings["Overall Experience"],
             comments: userComment,
         }).then(
             function(response) {
                 alert("Thank you for your feedback!");
+                quirkyMessage.textContent = "Your feedback has been sent! 🎉";
             },
             function(error) {
                 alert("Failed to send feedback. Please try again.");
+                quirkyMessage.textContent = "Oops! Something went wrong. 😬";
             }
         );
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Magic 8-Ball Responses
-    const responses = [
-        "Absolutely!",
-        "Try again later.",
-        "I'm not sure, but it sounds fun!",
-        "Definitely yes!",
-        "Maybe ask me tomorrow?",
-        "Only if you're lucky!",
-        "Without a doubt!",
-        "It's a secret!"
-    ];
+    function moveCarIcon() {
+        carIcon.style.visibility = 'visible';
+        carIcon.style.transition = "transform 2s";
+        carIcon.style.transform = "translateX(300px)"; // Adjust the distance as needed
 
-    // Magic 8-Ball feature
-    const magic8BallButton = document.getElementById("magic-8-ball");
-    const magicResponse = document.getElementById("magic-response");
-
-    if (magic8BallButton) {
-        magic8BallButton.addEventListener("click", function() {
-            const randomIndex = Math.floor(Math.random() * responses.length);
-            magicResponse.innerText = responses[randomIndex];
-        });
-    }
-
-    // Quirky Lines for Ready to Roll feature
-    const quirkyLines = [
-        "Fasten your seatbelt, it's gonna be a bumpy ride!",
-        "Did someone say adventure? Let’s roll!",
-        "Get ready for the ride of your life!",
-        "Hang on tight! We're off to the races!",
-        "Vroom Vroom! Let's hit the road!",
-        "Time to drive like we’re in a movie!",
-        "Ready, set, zoom! Here we go!",
-        "Let’s cruise like rock stars!"
-    ];
-
-    // Ready to Roll feature
-    const readyToRollButton = document.getElementById("ready-to-roll");
-    const carIcon = document.getElementById("car-icon");
-    const quirkyLineDisplay = document.getElementById("quirky-line"); // For displaying quirky lines
-
-    if (readyToRollButton && carIcon) {
-        readyToRollButton.addEventListener("click", function() {
-            carIcon.classList.add("drive");
-
-            // Display a random quirky line
-            const randomLineIndex = Math.floor(Math.random() * quirkyLines.length);
-            quirkyLineDisplay.innerText = quirkyLines[randomLineIndex];
-
-            setTimeout(() => {
-                carIcon.classList.remove("drive");
-                quirkyLineDisplay.innerText = ""; // Clear the line after the animation
-            }, 3000); // Reset animation after 3 seconds
-        });
+        setTimeout(() => {
+            carIcon.style.transform = "translateX(0)";
+            carIcon.style.visibility = 'hidden';
+        }, 2000); // Adjust duration as needed
     }
 });
-
