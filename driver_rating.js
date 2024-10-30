@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Display quirky message
-        quirkyMessage.textContent = "Sending your thoughts... 🚗💨";
+        quirkyMessage.textContent = "Sending your thoughts...";
         moveCarIcon();
 
         // Send email with ratings and comments using EmailJS
@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
             comments: userComment,
         }).then(
             function(response) {
-                alert("Thank you for your feedback!");
                 quirkyMessage.textContent = "Your feedback has been sent! 🎉";
             },
             function(error) {
