@@ -1,13 +1,24 @@
 // Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", function() {
-  emailjs.init("kailashnath");
+  emailjs.init("kailashnath"); 
+
   const starRatings = document.querySelectorAll(".star-rating");
   const comments = document.querySelector("#comments");
   const submitButton = document.querySelector("#submitButton");
 
+  if (!starRatings || !comments || !submitButton) {
+    console.error("Required elements not found in the DOM.");
+    return;
+  }
+
   // Loop through each rating section
   starRatings.forEach((ratingSection) => {
     const stars = ratingSection.querySelectorAll(".star");
+
+    if (stars.length === 0) {
+      console.error("No stars found in rating section.");
+      return;
+    }
 
     // Add event listeners for hover and click
     stars.forEach((star, index) => {
