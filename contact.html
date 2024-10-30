@@ -29,6 +29,33 @@
         #back-button:hover {
             background-color: #2980b9; /* Darker shade on hover */
         }
+        .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px; /* Adjust width as needed */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the button */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
     </style>
 </head>
 <body>
@@ -43,16 +70,21 @@
         </section>
 
         <!-- Magic 8-Ball Section -->
-        <div id="magic-8-ball-section">
-            <h2>For even quicker response ask the magic 8 ball</h2>
-<!--             <p id="instruction">Type your question in the box below and then click the Magic 8-Ball!</p> -->
-            <input type="text" id="question-input" placeholder="Ask your question here..." />
-            <button id="magic-8-ball" title="Click the 8-ball button until you get an answer you like!">Ask the Magic 8-Ball</button>
-            <div id="response"></div>
-            
-            <!-- Back to Ratings Page Button -->
-            <button id="back-button" onclick="window.location.href='index.html';">Back to Ratings</button>
-        </div>
+<div id="magic-8-ball-section">
+    <h2>For even quicker response ask the magic 8 ball</h2>
+    <input type="text" id="question-input" placeholder="Ask your question here..." />
+    
+    <div class="tooltip">
+        <button id="magic-8-ball">Ask the Magic 8-Ball</button>
+        <span class="tooltiptext">Click the 8-ball button until you get an answer you like!</span>
+    </div>
+    
+    <div id="response"></div>
+    
+    <!-- Back to Ratings Page Button -->
+    <button id="back-button" onclick="window.location.href='index.html';">Back to Ratings</button>
+</div>
+
     </div>
 
 <footer>
