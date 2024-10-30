@@ -119,16 +119,36 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Quirky Lines for Ready to Roll feature
+    const quirkyLines = [
+        "Fasten your seatbelt, it's gonna be a bumpy ride!",
+        "Did someone say adventure? Let’s roll!",
+        "Get ready for the ride of your life!",
+        "Hang on tight! We're off to the races!",
+        "Vroom Vroom! Let's hit the road!",
+        "Time to drive like we’re in a movie!",
+        "Ready, set, zoom! Here we go!",
+        "Let’s cruise like rock stars!"
+    ];
+
     // Ready to Roll feature
     const readyToRollButton = document.getElementById("ready-to-roll");
     const carIcon = document.getElementById("car-icon");
+    const quirkyLineDisplay = document.getElementById("quirky-line"); // For displaying quirky lines
 
     if (readyToRollButton && carIcon) {
         readyToRollButton.addEventListener("click", function() {
             carIcon.classList.add("drive");
+
+            // Display a random quirky line
+            const randomLineIndex = Math.floor(Math.random() * quirkyLines.length);
+            quirkyLineDisplay.innerText = quirkyLines[randomLineIndex];
+
             setTimeout(() => {
                 carIcon.classList.remove("drive");
+                quirkyLineDisplay.innerText = ""; // Clear the line after the animation
             }, 3000); // Reset animation after 3 seconds
         });
     }
 });
+
