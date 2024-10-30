@@ -101,13 +101,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Display random quirky message
         quirkyMessage.textContent = getRandomQuirkyMessage();
-        // moveCarIcon();
+        moveCarIcon();
 
         // Send email with ratings and comments using EmailJS
         emailjs.send("service_rwzse8w", "template_goneji6", {
             rating_chill: selectedRatings["Chill Factor"],
             rating_timeliness: selectedRatings["Timeliness"],
             rating_experience: selectedRatings["Overall Experience"],
+            rating_like: selectedRatings["How Much Do You Like Me?"], // New category
+            rating_date: selectedRatings["How Likely Would You Go on Another Date with Me?"], // New category
             comments: userComment,
         }).then(
             function(response) {
@@ -121,14 +123,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function moveCarIcon() {
-        carIcon.style.visibility = 'visible';
-        carIcon.style.transition = "transform 2s";
-        carIcon.style.transform = "translateX(300px)"; // Adjust the distance as needed
+        if (carIcon) {
+            carIcon.style.visibility = 'visible';
+            carIcon.style.transition = "transform 1s ease-in-out";
+            carIcon.style.transform = "translateX(50px)";
 
-        setTimeout(() => {
-            carIcon.style.transform = "translateX(0)";
-            carIcon.style.visibility = 'hidden';
-        }, 2000); // Adjust duration as needed
+            setTimeout(() => {
+                carIcon.style.transform = "translateX(0)";
+                carIcon.style.visibility = 'hidden';
+            }, 1000);
+        }
     }
 
     // Function to get a random quirky message
