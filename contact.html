@@ -7,16 +7,30 @@
     <link rel="stylesheet" href="driver_rating.css">
 </head>
 <body>
-    <header>
-        <h1>Need to Reach Out?</h1>
-        <p>Got a question or just want to say hi? I'm all ears!</p>
-    </header>
-    <section>
-        <p>For all booking inquiries, please contact my agent. Just kidding! You can reach me at <strong>myfakeemail@example.com</strong>.</p>
-        <p>Want another ride? Call my personal hotline at <strong>1-800-IM-A-DRIVER</strong>. Just don’t expect me to pick you up!</p>
-    </section>
-    <footer>
-        <p>Disclaimer: Serious inquiries only! No free rides for bad jokes.</p>
-    </footer>
+    <div class="container">
+        <header>
+            <h1>Need to Reach Out?</h1>
+            <p>Got a question or just want to say hi? I'm all ears!</p>
+        </header>
+
+        <!-- Magic 8-Ball Feature -->
+        <section>
+            <p>Ask me anything, and I'll answer:</p>
+            <button id="magic-8-ball">Ask the 8-Ball!</button>
+            <p id="magic-response"></p>
+        </section>
+
+        <!-- Ready to Roll Feature -->
+        <section class="ready-to-roll">
+            <button id="ready-to-roll">Ready to Roll?</button>
+            <div id="car-icon" class="car-icon"></div>
+        </section>
+
+        <footer>
+            <p>Disclaimer: Serious inquiries only! No free rides for bad jokes.</p>
+        </footer>
+    </div>
+
+    <script src="driver_rating.js"></script>
 </body>
 </html>
