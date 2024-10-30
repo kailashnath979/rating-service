@@ -1,4 +1,3 @@
-/* General styles */
 body {
     font-family: Arial, sans-serif;
     background: url('cityscape-atlanta.jpg') no-repeat center center fixed;
@@ -12,16 +11,17 @@ h1, h2 {
     color: #444;
 }
 
-/* Rating star styles */
+/* Star styles */
 .star {
     font-size: 2.5em;
-    color: gray; /* Default star color */
+    color: gray;
     cursor: pointer;
     transition: color 0.2s;
 }
 
+.star.highlighted,
 .star.selected {
-    color: gold; /* Selected star color */
+    color: gold;
 }
 
 .rating-category {
@@ -29,45 +29,6 @@ h1, h2 {
     margin: 20px 0;
 }
 
-/* Feedback message */
-#feedback-message {
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: green;
-}
-
-/* Footer with funny disclaimer */
-footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 50px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Interactive car icon */
-#car-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('car.png'); /* Placeholder image */
-    background-size: contain;
-    pointer-events: none;
-    visibility: hidden;
-}
-
-/* Easter egg hint */
-#page-title {
-    cursor: pointer;
-    color: #f39c12;
-}
-
-/* Button styling */
 button {
     display: block;
     margin: 20px auto;
@@ -85,29 +46,18 @@ button:hover {
     background-color: #2ecc71;
 }
 
-/* Transition and animation for more creativity */
-.rating-category .star {
-    transition: transform 0.2s;
+.comment-box {
+    width: 100%;
+    margin-top: 20px;
 }
 
-.rating-category .star:hover {
-    transform: scale(1.2);
-}
-
-/* Comment box styling */
-#comment-box {
+#comment {
     width: 100%;
     height: 100px;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none;
-}
-
-/* Easter egg pop-up animation */
-@keyframes pop-up {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
 }
