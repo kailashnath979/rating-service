@@ -25,9 +25,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    document.getElementById('submit-rating').addEventListener('click', () => {
-        displayFeedback();
-    });
+    // document.getElementById('submit-rating').addEventListener('click', () => {
+    //     displayFeedback();
+    // });
+
+    // Initialize EmailJS
+(function() {
+    emailjs.init("kailashnath"); // Replace with your EmailJS User ID
+})();
+
+// Function to handle the form submission
+function submitForm() {
+    const rating = getSelectedRating(); // Implement this function to get the rating
+    const comment = document.getElementById('comment').value; // Get the comment
+
+    const templateParams = {
+        rating: rating,
+        comment: comment,
+    };
+
+    // Send email using EmailJS
+    emailjs.send('service_rwzse8w', 'template_goneji6', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Thank you for your feedback!');
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Oops! Something went wrong, please try again.');
+        });
+}
+
+// Attach submitForm to the button or form submit event
+document.getElementById('submit-rating').addEventListener('click', submitForm);
+
 
     function highlightStars(stars, value) {
         stars.forEach(s => {
