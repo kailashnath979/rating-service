@@ -1,4 +1,3 @@
-// Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", function() {
     emailjs.init("pbZkQxJOSeedyqYq5");
 
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
 
-    // Array of quirky messages
     const quirkyMessages = [
     "Thanks for your feedback! 🌟✨ Your thoughts are like confetti—spreading joy all around!",
     "Your message just floated in like a balloon! 🎈💌 It’s on its way to brighten my day!",
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 
-    // Loop through each rating section
     starRatings.forEach((ratingSection) => {
         const stars = ratingSection.querySelectorAll(".star");
 
@@ -38,40 +35,32 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Add event listeners for hover and click
         stars.forEach((star, index) => {
-            // Handle hover effect
             star.addEventListener("mouseover", function() {
                 highlightStars(stars, index);
             });
 
-            // Reset stars when mouse leaves
             star.addEventListener("mouseleave", function() {
                 resetStars(stars);
             });
 
-            // Handle click to set rating
             star.addEventListener("click", function() {
                 setRating(stars, index + 1, ratingSection);
             });
         });
     });
 
-    // Function to highlight stars up to the hovered one
     function highlightStars(stars, index) {
         stars.forEach((star, i) => {
             star.classList.toggle("highlighted", i <= index);
         });
     }
-
-    // Function to reset star highlights
     function resetStars(stars) {
         stars.forEach((star) => {
             star.classList.remove("highlighted");
         });
     }
 
-    // Function to set and display the selected rating
     function setRating(stars, rating, ratingSection) {
         ratingSection.setAttribute("data-selected-rating", rating);
         stars.forEach((star, i) => {
@@ -79,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Collect all selected ratings for each category
     function getSelectedRatings() {
         const ratings = {};
         starRatings.forEach((section) => {
@@ -90,28 +78,24 @@ document.addEventListener("DOMContentLoaded", function() {
         return ratings;
     }
 
-    // Handle form submission
     submitButton.addEventListener("click", function() {
         const selectedRatings = getSelectedRatings();
         const userComment = comments.value;
 
-        // Check if all categories have been rated
         if (Object.values(selectedRatings).includes("0")) {
             alert("Please provide a rating for all categories.");
             return;
         }
 
-        // Display random quirky message
         quirkyMessage.textContent = getRandomQuirkyMessage();
         moveCarIcon();
 
-        // Send email with ratings and comments using EmailJS
         emailjs.send("service_rwzse8w", "template_goneji6", {
-            rating_chill: selectedRatings["Chill Factor"],
-            rating_timeliness: selectedRatings["Timeliness"],
-            rating_experience: selectedRatings["Overall Experience"],
-            rating_like: selectedRatings["How Much Do You Like Me?"], // New category
-            rating_date: selectedRatings["How Likely Would You Go on Another Date with Me?"], // New category
+            rating_chill: selectedRatings["How zen were you during our ride?"],
+            rating_timeliness: selectedRatings["Did I keep you waiting like a lost tourist?"],
+            rating_experience: selectedRatings["How much fun did I bring to our ride?"],
+            rating_like: selectedRatings["How Much Do You Like Me?"], 
+            rating_date: selectedRatings["Another date?"], 
             comments: userComment,
         }).then(
             function(response) {
@@ -137,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to get a random quirky message
     function getRandomQuirkyMessage() {
         const randomIndex = Math.floor(Math.random() * quirkyMessages.length);
         return quirkyMessages[randomIndex];
