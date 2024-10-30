@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to handle the form submission
 function submitForm() {
+    alert('Thank you for your feedback!');
     const rating = getSelectedRating(); // Implement this function to get the rating
     const comment = document.getElementById('comment').value; // Get the comment
 
@@ -56,7 +57,9 @@ function submitForm() {
 }
 
 // Attach submitForm to the button or form submit event
-document.getElementById('submit-rating').addEventListener('click', submitForm);
+document.getElementById('submit-rating').addEventListener('click', () => {
+    submitForm();
+});
 
 
     function highlightStars(stars, value) {
