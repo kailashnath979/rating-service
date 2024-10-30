@@ -53,15 +53,23 @@
             }
 
             const responses = [
-                "Yes, definitely!",
-                "Ask again later.",
-                "No way!",
-                "Absolutely!",
-                "Cannot predict now.",
-                "Don't count on it.",
-                "Yes, in due time.",
-                "Very doubtful."
-            ];
+    "Sure, but only if you share your snacks!",
+    "Ask me after my coffee, please.",
+    "Absolutely, but only if you sing!",
+    "As likely as a cat in a dog show.",
+    "I’d bet my last cookie on it!",
+    "Ask your pet; they know more than I do.",
+    "That’s a hard maybe. Try again?",
+    "Sure thing, Captain Obvious!",
+    "My crystal ball is on vacation; ask later.",
+    "I foresee... a nap in your future!",
+    "Yes, if you can guess my favorite color!",
+    "Only if you promise to laugh at my jokes!",
+    "It's a no-brainer! But you might need a brain.",
+    "Yes, but you owe me a pizza!",
+    "That sounds fishy; let’s ask a dolphin!"
+];
+
 
             const randomResponse = responses[Math.floor(Math.random() * responses.length)];
             document.getElementById('response').innerText = randomResponse;
