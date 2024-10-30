@@ -1,66 +1,89 @@
+// Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", function() {
-    emailjs.init("pbZkQxJOSeedyqYq5");
+    emailjs.init("pbZkQxJOSeedyqYq5"); // Replace with your EmailJS user ID
 
-    const ratingSections = document.querySelectorAll(".rating-category");
-    const commentBox = document.querySelector("#comment");
-    const submitButton = document.querySelector("#submit-rating");
+    const starRatings = document.querySelectorAll(".rating-category");
+    const commentBox = document.getElementById("comment");
+    const submitButton = document.getElementById("submit-rating");
 
-    // Star rating functionality
-    ratingSections.forEach(section => {
-        const stars = section.querySelectorAll(".star");
-        const category = section.dataset.category;
+    if (!starRatings || !commentBox || !submitButton) {
+        console.error("Required elements not found in the DOM.");
+        return;
+    }
 
-        stars.forEach(star => {
+    // Loop through each rating section to add hover and click functionality
+    starRatings.forEach((ratingSection) => {
+        const stars = ratingSection.querySelectorAll(".star");
+
+        stars.forEach((star, index) => {
             // Highlight stars on hover
-            star.addEventListener("mouseover", () => highlightStars(stars, star.dataset.value));
-            star.addEventListener("mouseleave", () => resetStars(stars, section));
+            star.addEventListener("mouseover", function() {
+                highlightStars(stars, index);
+            });
+
+            // Reset stars when mouse leaves
+            star.addEventListener("mouseleave", function() {
+                resetStars(stars, ratingSection);
+            });
 
             // Set rating on click
-            star.addEventListener("click", () => {
-                section.setAttribute("data-selected-rating", star.dataset.value);
-                updateSelectedStars(stars, star.dataset.value);
+            star.addEventListener("click", function() {
+                setRating(stars, index + 1, ratingSection);
             });
         });
     });
 
-    function highlightStars(stars, value) {
-        stars.forEach(star => {
-            star.classList.toggle("highlighted", star.dataset.value <= value);
+    // Highlight stars up to the hovered one
+    function highlightStars(stars, index) {
+        stars.forEach((star, i) => {
+            star.classList.toggle("highlighted", i <= index);
         });
     }
 
-    function resetStars(stars, section) {
-        const selectedRating = section.getAttribute("data-selected-rating");
-        stars.forEach(star => {
-            star.classList.toggle("highlighted", star.dataset.value <= selectedRating);
+    // Reset stars to previously selected rating or to default if none selected
+    function resetStars(stars, ratingSection) {
+        const selectedRating = ratingSection.getAttribute("data-selected-rating");
+        stars.forEach((star, i) => {
+            star.classList.toggle("highlighted", i < selectedRating);
         });
     }
 
-    function updateSelectedStars(stars, value) {
-        stars.forEach(star => {
-            star.classList.toggle("selected", star.dataset.value <= value);
+    // Set and display the selected rating
+    function setRating(stars, rating, ratingSection) {
+        ratingSection.setAttribute("data-selected-rating", rating);
+        stars.forEach((star, i) => {
+            star.classList.toggle("selected", i < rating);
         });
     }
 
-    submitButton.addEventListener("click", function() {
+    // Collect selected ratings for each category
+    function getSelectedRatings() {
         const ratings = {};
-        ratingSections.forEach(section => {
-            const category = section.dataset.category;
+        starRatings.forEach((section) => {
+            const category = section.querySelector("h3").innerText;
             const rating = section.getAttribute("data-selected-rating") || "0";
             ratings[category] = rating;
         });
-        const comment = commentBox.value;
+        return ratings;
+    }
 
-        if (Object.values(ratings).includes("0")) {
+    // Handle form submission
+    submitButton.addEventListener("click", function() {
+        const selectedRatings = getSelectedRatings();
+        const userComment = commentBox.value;
+
+        // Check if all categories have been rated
+        if (Object.values(selectedRatings).includes("0")) {
             alert("Please provide a rating for all categories.");
             return;
         }
 
+        // Send email with ratings and comments using EmailJS
         emailjs.send("service_rwzse8w", "template_goneji6", {
-            rating_chill: ratings["chill"],
-            rating_timeliness: ratings["timeliness"],
-            rating_entertainment: ratings["entertainment"],
-            comments: comment,
+            rating_chill: selectedRatings["Chill Factor"],
+            rating_timeliness: selectedRatings["Timeliness"],
+            rating_entertainment: selectedRatings["Overall Experience"],
+            comments: userComment,
         }).then(
             function(response) {
                 alert("Thank you for your feedback!");
