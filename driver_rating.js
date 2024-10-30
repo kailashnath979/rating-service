@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
             comments: userComment,
         }).then(
             function(response) {
-                quirkyMessage.textContent = "Your feedback has been sent! 🎉";
+                // quirkyMessage.textContent = "Your feedback has been sent! 🎉";
             },
             function(error) {
                 alert("Failed to send feedback. Please try again.");
