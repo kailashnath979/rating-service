@@ -94,3 +94,41 @@ document.addEventListener("DOMContentLoaded", function() {
         );
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Magic 8-Ball Responses
+    const responses = [
+        "Absolutely!",
+        "Try again later.",
+        "I'm not sure, but it sounds fun!",
+        "Definitely yes!",
+        "Maybe ask me tomorrow?",
+        "Only if you're lucky!",
+        "Without a doubt!",
+        "It's a secret!"
+    ];
+
+    // Magic 8-Ball feature
+    const magic8BallButton = document.getElementById("magic-8-ball");
+    const magicResponse = document.getElementById("magic-response");
+
+    if (magic8BallButton) {
+        magic8BallButton.addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * responses.length);
+            magicResponse.innerText = responses[randomIndex];
+        });
+    }
+
+    // Ready to Roll feature
+    const readyToRollButton = document.getElementById("ready-to-roll");
+    const carIcon = document.getElementById("car-icon");
+
+    if (readyToRollButton && carIcon) {
+        readyToRollButton.addEventListener("click", function() {
+            carIcon.classList.add("drive");
+            setTimeout(() => {
+                carIcon.classList.remove("drive");
+            }, 3000); // Reset animation after 3 seconds
+        });
+    }
+});
