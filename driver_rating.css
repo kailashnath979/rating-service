@@ -4,51 +4,55 @@ body {
     background-size: cover;
     color: #333;
     padding: 20px;
+    position: relative; /* Ensure the overlay covers the body */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity */
+    z-index: -1; /* Keep it behind content */
 }
 
 h1, h2 {
     text-align: center;
-    color: #444;
+    color: #fff; /* Change text color to white for better contrast */
 }
 
-/* Star styles */
-.star {
-    font-size: 2.5em;
-    color: gray;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.star.highlighted,
-.star.selected {
-    color: gold;
+.rating-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
 }
 
 .rating-category {
     text-align: center;
     margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background with some transparency */
+    padding: 15px; /* Add padding for spacing */
+    border-radius: 8px; /* Rounded corners */
 }
 
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+h1 {
+    font-size: 2.5em; /* Increase header size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
 }
 
-button:hover {
-    background-color: #2ecc71;
+h2, h3 {
+    font-size: 2em; /* Increase size for subheaders */
+    color: #fff; /* Use white color for better visibility */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for contrast */
 }
 
 .comment-box {
-    width: 100%;
-    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for comments */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside comment box */
 }
 
 #comment {
@@ -62,74 +66,31 @@ button:hover {
     resize: none;
 }
 
-/* Magic 8-Ball Section */
-#magic-8-ball {
-    background-color: #3498db;
-    color: white;
+button {
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#magic-8-ball:hover {
-    background-color: #2980b9;
-}
-
-#magic-response {
-    font-style: italic;
-    margin-top: 10px;
-    color: #333;
-}
-
-/* Ready to Roll Button and Animation */
-#ready-to-roll {
-    background-color: #e67e22;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-#ready-to-roll:hover {
-    background-color: #d35400;
-}
-
-.car-icon {
-    width: 50px;
-    height: 50px;
-    background-image: url('car.png'); /* Add the car image */
-    background-size: contain;
-    position: absolute;
-    left: -60px;
-    top: 50%;
-    visibility: hidden;
-}
-
-.car-icon.drive {
-    visibility: visible;
-    animation: drive-across 3s linear;
-}
-
-@keyframes drive-across {
-    0% {
-        left: -60px;
-    }
-    100% {
-        left: calc(100% + 60px);
-    }
-}
-
-/* Styling for quirky line */
-#quirky-line {
     font-size: 1.2em;
-    text-align: center;
-    margin: 10px 0;
-    color: #e74c3c; /* Color for the quirky line */
-    font-weight: bold;
+    background-color: #27ae60; /* Original color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+button:hover {
+    background-color: #2ecc71; /* Slightly brighter green */
+}
 
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for footer */
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 20px; /* Padding for spacing */
+}
+
+.silly-disclaimer {
+    font-size: 0.8em; /* Smaller text for disclaimer */
+    color: #fff; /* White color for better visibility */
+}
