@@ -1,113 +1,66 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Handle star rating functionality for multiple categories
-    const ratingCategories = document.querySelectorAll('.rating-category');
+// Initialize EmailJS on page load
+document.addEventListener("DOMContentLoaded", function() {
+    emailjs.init("kailashnath");
 
-    ratingCategories.forEach(category => {
-        const stars = category.querySelectorAll('.star');
-        
-        stars.forEach(star => {
-            star.addEventListener('mouseover', () => {
-                highlightStars(stars, star.dataset.value);
-            });
-
-            star.addEventListener('mouseleave', () => {
-                resetStars(stars);
-                const selectedValue = category.dataset.selectedValue;
-                if (selectedValue) {
-                    highlightStars(stars, selectedValue);
-                }
-            });
-
-            star.addEventListener('click', () => {
-                category.dataset.selectedValue = star.dataset.value;
-                highlightStars(stars, star.dataset.value);
-            });
-        });
-    });
-
-    // document.getElementById('submit-rating').addEventListener('click', () => {
-    //     displayFeedback();
-    // });
-
-    // Initialize EmailJS
-(function() {
-    emailjs.init("kailashnath"); // Replace with your EmailJS User ID
-})();
-
-// Function to handle the form submission
-function submitForm() {
-    alert('Thank you for your feedback!');
-    const rating = getSelectedRating(); // Implement this function to get the rating
-    const comment = document.getElementById('comment').value; // Get the comment
-
-    const templateParams = {
-        rating: rating,
-        comment: comment,
-    };
-
-    // Send email using EmailJS
-    emailjs.send('service_rwzse8w', 'template_goneji6', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('Thank you for your feedback!');
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert('Oops! Something went wrong, please try again.');
-        });
-}
-
-// Attach submitForm to the button or form submit event
-    document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('submit-button').addEventListener('click', () => {
     submitForm();
     });
 });
 
-
-
-    function highlightStars(stars, value) {
-        stars.forEach(s => {
-            s.classList.remove('selected');
-            if (s.dataset.value <= value) {
-                s.classList.add('selected');
-            }
-        });
-    }
-
-    function resetStars(stars) {
-        stars.forEach(star => {
-            star.classList.remove('selected');
-        });
-    }
-
-    // Fun feedback message after rating is submitted
-    function displayFeedback() {
-        const feedbackMessage = document.getElementById('feedback-message');
-        feedbackMessage.textContent = "Thank you for your feedback! I’ll work on my charm and driving skills!";
-        feedbackMessage.style.display = 'block';
-    }
-
-    // Easter egg: Clicking on the title triggers a surprise message
-    document.getElementById('page-title').addEventListener('click', () => {
-        alert("Surprise! You've found an Easter Egg! 👀");
+// Function to get selected rating for each category
+function getSelectedRating(category) {
+    const stars = document.querySelectorAll(`#${category} .star`);
+    let rating = 0;
+    stars.forEach((star, index) => {
+        if (star.classList.contains('selected')) {
+            rating = index + 1; 
+        }
     });
+    return rating;
+}
 
-    // Interactive car following cursor
-    const carIcon = document.getElementById('car-icon');
-    document.addEventListener('mousemove', (e) => {
-        carIcon.style.left = `${e.pageX}px`;
-        carIcon.style.top = `${e.pageY}px`;
-    });
+// Function to handle form submission
+function submitForm(event) {
+    event.preventDefault();
 
-    // Adding comment box functionality
-    const commentBox = document.getElementById('comment-box');
-    document.getElementById('submit-comment').addEventListener('click', () => {
-        const comment = commentBox.value.trim();
-        if (comment) {
-            alert("Comment submitted: " + comment);
-            commentBox.value = '';  // Clear the comment box
-        } else {
-            alert("Please enter a comment before submitting.");
+    // Collect ratings and comment
+    const humorRating = getSelectedRating("humor");
+    const comfortRating = getSelectedRating("comfort");
+    const timelinessRating = getSelectedRating("timeliness");
+    const comment = document.getElementById('comment-box').value;
+
+    // EmailJS parameters
+    const templateParams = {
+        humor: humorRating,
+        comfort: comfortRating,
+        timeliness: timelinessRating,
+        comment: comment
+    };
+
+    // Send email with ratings and comment
+    emailjs.send("service_rwzse8w", "template_goneji6", templateParams)
+        .then(response => {
+            console.log("Success!", response.status, response.text);
+            alert("Thanks for submitting your feedback!");
+        })
+        .catch(error => {
+            console.error("Failed to send feedback", error);
+            alert("Sorry, there was an issue submitting your feedback.");
+        });
+}
+
+// Star rating selection functionality
+document.querySelectorAll('.star').forEach(star => {
+    star.addEventListener('click', function() {
+        const category = this.parentNode.id;
+        const stars = document.querySelectorAll(`#${category} .star`);
+
+        // Clear previous selection
+        stars.forEach(s => s.classList.remove('selected'));
+        
+        // Mark all stars up to the clicked one as selected
+        for (let i = 0; i <= Array.from(stars).indexOf(this); i++) {
+            stars[i].classList.add('selected');
         }
     });
 });
