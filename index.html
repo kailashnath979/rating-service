@@ -9,6 +9,9 @@
 <body>
     <header>
         <h1>Rate Your Experience!</h1>
+        <nav>
+            <a href="contact.html">Contact Me (I promise I won't ghost you!)</a>
+        </nav>
     </header>
 
     <main>
@@ -56,17 +59,17 @@
                 <textarea id="comment" placeholder="Tell me how you really feel!"></textarea>
             </div>
 
+            <div id="quirky-message" style="text-align: center; font-size: 1.2em; margin: 20px 0;"></div>
+
             <button id="submit-rating">Submit Rating</button>
         </div>
     </main>
-    <nav>
-            <a href="contact.html">Contact Me (I promise I won't ghost you!)</a>
-    </nav>
+
     <footer>
         <p class="silly-disclaimer">Disclaimer: I am not responsible for any bad jokes or dad jokes made during the trip!</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script src="driver_rating.js"></script>
 </body>
 </html>
