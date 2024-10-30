@@ -15,17 +15,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Array of quirky messages
     const quirkyMessages = [
-        "Sending your thoughts...",
-        "Your feedback is zooming away! 🚀",
-        "Hold tight, your comments are on their way! 🏎️",
-        "Packing your thoughts for delivery! 📦",
-        "Your insights are taking a joyride! 🎢",
-        "Buckle up! Your feedback is hitting the road! 🚙",
-        "Your ratings are racing to their destination! 🏁",
-        "Hang on! We’re sending your feedback off! 📡",
-        "Your thoughts are in the fast lane! 🛣️",
-        "Sending your feedback with a sprinkle of magic! ✨"
-    ];
+    "Thanks for your feedback! 🌟✨ Your thoughts are like confetti—spreading joy all around!",
+    "Your message just floated in like a balloon! 🎈💌 It’s on its way to brighten my day!",
+    "Thanks for sharing! 📨🌈 Your input is like a sprinkle of magic in my inbox!",
+    "Your feedback is a high-five in my heart! 🙌💖 It’s sure to spark some smiles!",
+    "I appreciate your thoughts! 🌼💌 They’re like sunshine, making everything brighter!",
+    "Your feedback just danced into my inbox! 💃📬 Ready to groove into something awesome!",
+    "Thanks for the message! 🎉📝 It’s like a treasure map, guiding me to new adventures!",
+    "Your thoughts just did a happy jig! 💃✨ They’re here to add some sparkle to my day!",
+    "Thanks for your input! 💌🌟 It’s like a surprise gift—wrapped in awesomeness!",
+    "Your feedback just arrived like a shooting star! 🌠💌 I’ll make a wish to keep shining brighter!"
+];
+
+    
 
     // Loop through each rating section
     starRatings.forEach((ratingSection) => {
