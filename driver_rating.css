@@ -11,8 +11,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity */
     z-index: -1; /* Keep it behind content */
 }
@@ -20,11 +20,6 @@ body {
 h1, h2 {
     text-align: center;
     color: #fff; /* Change text color to white for better contrast */
-}
-
-h1, h2 {
-    text-align: center;
-    color: #444;
 }
 
 /* Star styles */
