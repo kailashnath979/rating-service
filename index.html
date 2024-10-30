@@ -3,65 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver Rating</title>
     <link rel="stylesheet" href="driver_rating.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function(){
-        emailjs.init("kailashnath"); 
-    })();
-</script>
-    <script defer src="driver_rating.js"></script>
+    <title>Driver Rating Experience</title>
 </head>
 <body>
-    <h1 id="page-title">Rate Your Driver Experience!</h1>
+    <header>
+        <h1>Rate Your Experience!</h1>
+        <nav>
+            <a href="contact.html">Contact Me (I promise I won't ghost you!)</a>
+        </nav>
+    </header>
 
-    <div class="rating-category" data-selected-value="">
-        <h2>Was I a Comedian or Just Corny?</h2>
-        <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-    </div>
+    <main>
+        <div class="rating-container">
+            <h2>How did I do?</h2>
 
-    <div class="rating-category" data-selected-value="">
-        <h2>How Smooth was the Ride?</h2>
-        <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-    </div>
+            <div class="rating-category">
+                <h3>Chill Factor</h3>
+                <div class="stars" data-category="chill">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <p>On a scale of 1 to 5, how relaxed did you feel during the ride? (1 = ‘Need a spa day’ to 5 = ‘I could nap!’)</p>
+            </div>
 
-    <div class="rating-category" data-selected-value="">
-        <h2>Would You Call Again?</h2>
-        <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-    </div>
+            <div class="rating-category">
+                <h3>Timeliness</h3>
+                <div class="stars" data-category="timeliness">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <p>How would you rate my punctuality? (1 = ‘Did I forget to set my alarm?’ to 5 = ‘Right on the dot!’)</p>
+            </div>
 
-    <button id="submit-rating">Submit Rating</button>
-    <div id="feedback-message"></div>
+            <div class="rating-category">
+                <h3>Overall Experience</h3>
+                <div class="stars" data-category="entertainment">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <p>How entertaining was I during the trip? (1 = ‘Crickets’ to 5 = ‘Stand-up comedian level!’)</p>
+            </div>
 
-    <div>
-        <h2>Leave Your Comments!</h2>
-        <textarea id="comment-box" placeholder="Enter your comments here..."></textarea>
-        <button id="submit-comment">Submit Comment</button>
-    </div>
+            <div class="comment-box">
+                <label for="comment">Leave a funny comment:</label>
+                <textarea id="comment" placeholder="Tell me how you really feel!"></textarea>
+            </div>
 
-    <nav>
-        <a href="contact.html">Need to reach out? Click here!</a>
-    </nav>
-
-
-    <img id="car-icon" src="https://www.flaticon.com/free-icons/3d-car" alt="Car Icon" />
+            <button id="submit-rating">Submit Rating</button>
+        </div>
+    </main>
 
     <footer>
-        <p>Disclaimer: Your ratings might make me a better driver, but they won't make me a better comedian! 😂</p>
-        <p><a href="contact.html">Have something funny to say? Contact me here!</a></p>
+        <p class="silly-disclaimer">Disclaimer: I am not responsible for any bad jokes or dad jokes made during the trip!</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script src="driver_rating.js"></script>
 </body>
 </html>
