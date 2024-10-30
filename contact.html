@@ -16,6 +16,19 @@
             font-size: 1.5em;
             color: #27ae60;
         }
+        #back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #3498db; /* Button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #back-button:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
     </style>
 </head>
 <body>
@@ -36,6 +49,9 @@
             <input type="text" id="question-input" placeholder="Ask your question here..." />
             <button id="magic-8-ball" title="Click the 8-ball button until you get an answer you like!">Ask the Magic 8-Ball</button>
             <div id="response"></div>
+            
+            <!-- Back to Ratings Page Button -->
+            <button id="back-button" onclick="window.location.href='index.html';">Back to Ratings</button>
         </div>
     </div>
 
