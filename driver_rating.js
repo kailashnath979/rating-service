@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    emailjs.init("kailashnath");
+    emailjs.init("pbZkQxJOSeedyqYq5");
 
     const ratingSections = document.querySelectorAll(".rating-category");
     const commentBox = document.querySelector("#comment");
