@@ -102,39 +102,39 @@
     <script src="driver_rating.js"></script>
     <script>
         $(document).ready(function() {
-            // Initialize tooltips with custom show effect
-            $(".star").tooltip({
-                items: "[title]",
-                show: { effect: "blind", duration: 300 },
-                hide: { effect: "explode", duration: 300 },
-                position: {
-                    my: "left+15 center",
-                    at: "left center"
-                }
-            });
+    // Initialize tooltips with custom show effect
+    $(".star").tooltip({
+        items: "[title]",
+        show: { effect: "blind", duration: 300 },
+        hide: { effect: "explode", duration: 300 },
+        position: {
+            my: "left+15 center",
+            at: "left center"
+        }
+    });
 
-            let tooltipTimeout;
-            $(".star").on("mousemove", function(event) {
-                clearTimeout(tooltipTimeout); // Clear the timeout if mouse moves again
+    let tooltipTimeout;
+    $(".star").on("mouseenter", function(event) {
+        clearTimeout(tooltipTimeout); // Clear the timeout if mouse moves again
+        
+        const tooltip = $(this).data("ui-tooltip");
+        tooltip.tooltip("option", "position", { my: "left+15 center", at: "left center", of: event });
 
-                // Move tooltip with cursor
-                const tooltip = $(this).data("ui-tooltip");
-                const left = event.pageX + 10; // Add some offset for better visibility
-                const top = event.pageY + 10; // Add some offset for better visibility
-                
-                tooltip.tooltip("option", "position", { my: "left+15 center", at: "left center", of: event });
+        // Show the tooltip immediately
+        tooltip.tooltip("open");
+    });
 
-                // Show the tooltip after a small delay
-                tooltipTimeout = setTimeout(function() {
-                    tooltip.tooltip("open");
-                }, 100); // Adjust the delay as needed
-            });
+    $(".star").on("mousemove", function(event) {
+        // Move tooltip with cursor
+        const tooltip = $(this).data("ui-tooltip");
+        tooltip.tooltip("option", "position", { my: "left+15 center", at: "left center", of: event });
+    });
 
-            $(".star").on("mouseleave", function() {
-                const tooltip = $(this).data("ui-tooltip");
-                tooltip.tooltip("close");
-            });
-        });
+    $(".star").on("mouseleave", function() {
+        const tooltip = $(this).data("ui-tooltip");
+        tooltip.tooltip("close");
+    });
+});
     </script>
 </body>
 </html>
