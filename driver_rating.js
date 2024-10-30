@@ -57,9 +57,12 @@ function submitForm() {
 }
 
 // Attach submitForm to the button or form submit event
-document.getElementById('submit-rating').addEventListener('click', () => {
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('submit-button').addEventListener('click', () => {
     submitForm();
+    });
 });
+
 
 
     function highlightStars(stars, value) {
