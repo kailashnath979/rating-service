@@ -5,9 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <link rel="stylesheet" href="driver_rating.css">
+    <style>
+        /* Add some styling for the Magic 8-Ball section */
+        #magic-8-ball-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #27ae60;
+        }
+        #back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #3498db; /* Button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #back-button:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
+        .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px; /* Adjust width as needed */
+    background-color: white;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 25%; /* Position above the button */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+    </style>
 </head>
 <body>
-    <div class="overlay"></div> <!-- Overlay div -->
     <div class="container">
         <header>
             <h1>Need to Reach Out?</h1>
@@ -19,25 +70,26 @@
         </section>
 
         <!-- Magic 8-Ball Section -->
-        <div id="magic-8-ball-section">
-            <h2>For even quicker response ask the magic 8 ball</h2>
-            <input type="text" id="question-input" placeholder="Ask your question here..." />
-            <br>
-            <div class="tooltip">
-                <button id="magic-8-ball">Ask the Magic 8-Ball</button>
-                <span class="tooltiptext">Click the 8-ball button until you get an answer you like!</span>
-            </div>
-            
-            <div id="response"></div>
-            
-            <!-- Back to Ratings Page Button -->
-            <button id="back-button" onclick="window.location.href='index.html';">Back to Ratings</button>
-        </div>
+<div id="magic-8-ball-section">
+    <h2>For even quicker response ask the magic 8 ball</h2>
+    <input type="text" id="question-input" placeholder="Ask your question here..." />
+    <br>
+    <div class="tooltip">
+        <button id="magic-8-ball">Ask the Magic 8-Ball</button>
+        <span class="tooltiptext">Click the 8-ball button until you get an answer you like!</span>
+    </div>
+    
+    <div id="response"></div>
+    
+    <!-- Back to Ratings Page Button -->
+    <button id="back-button" onclick="window.location.href='index.html';">Back to Ratings</button>
+</div>
+
     </div>
 
-    <footer>
+<footer>
         <p>Disclaimer: Serious inquiries only! No free rides for bad jokes.</p>
-    </footer>
+</footer>
 
     <script>
         document.getElementById('magic-8-ball').addEventListener('click', function() {
@@ -49,24 +101,25 @@
             }
 
             const responses = [
-                "Sure, but only if you share your snacks!",
-                "Ask me after my coffee, please.",
-                "Absolutely, but only if you sing!",
-                "As likely as a cat in a dog show.",
-                "I’d bet my last cookie on it!",
-                "Ask your pet; they know more than I do.",
-                "That’s a hard maybe. Try again?",
-                "Sure thing, Captain Obvious!",
-                "My crystal ball is on vacation; ask later.",
-                "I foresee... a nap in your future!",
-                "Yes, if you can guess my favorite color!",
-                "Only if you promise to laugh at my jokes!",
-                "It's a no-brainer! But you might need a brain.",
-                "Yes, but you owe me a pizza!",
-                "That sounds fishy; let’s ask a dolphin!",
-                "Only if you promise to tell me a dad joke afterward!",
-                "My crystal ball is currently buffering... please wait!"
-            ];
+    "Sure, but only if you share your snacks!",
+    "Ask me after my coffee, please.",
+    "Absolutely, but only if you sing!",
+    "As likely as a cat in a dog show.",
+    "I’d bet my last cookie on it!",
+    "Ask your pet; they know more than I do.",
+    "That’s a hard maybe. Try again?",
+    "Sure thing, Captain Obvious!",
+    "My crystal ball is on vacation; ask later.",
+    "I foresee... a nap in your future!",
+    "Yes, if you can guess my favorite color!",
+    "Only if you promise to laugh at my jokes!",
+    "It's a no-brainer! But you might need a brain.",
+    "Yes, but you owe me a pizza!",
+    "That sounds fishy; let’s ask a dolphin!",
+    "Only if you promise to tell me a dad joke afterward!",
+    "My crystal ball is currently buffering... please wait!"
+];
+
 
             const randomResponse = responses[Math.floor(Math.random() * responses.length)];
             document.getElementById('response').innerText = randomResponse;
@@ -74,3 +127,4 @@
     </script>
 </body>
 </html>
+
