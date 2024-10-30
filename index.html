@@ -111,10 +111,28 @@
                     my: "left+15 center",
                     at: "left center"
                 }
-            }).mousemove(function(event) {
+            });
+
+            let tooltipTimeout;
+            $(".star").on("mousemove", function(event) {
+                clearTimeout(tooltipTimeout); // Clear the timeout if mouse moves again
+
                 // Move tooltip with cursor
-                var tooltip = $(this).data("ui-tooltip");
+                const tooltip = $(this).data("ui-tooltip");
+                const left = event.pageX + 10; // Add some offset for better visibility
+                const top = event.pageY + 10; // Add some offset for better visibility
+                
                 tooltip.tooltip("option", "position", { my: "left+15 center", at: "left center", of: event });
+
+                // Show the tooltip after a small delay
+                tooltipTimeout = setTimeout(function() {
+                    tooltip.tooltip("open");
+                }, 100); // Adjust the delay as needed
+            });
+
+            $(".star").on("mouseleave", function() {
+                const tooltip = $(this).data("ui-tooltip");
+                tooltip.tooltip("close");
             });
         });
     </script>
