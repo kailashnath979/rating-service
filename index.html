@@ -104,8 +104,17 @@
         $(document).ready(function() {
             // Initialize tooltips with custom show effect
             $(".star").tooltip({
-                show: { effect: "blind", duration: 300 }, // Adjust duration as needed
-                hide: { effect: "explode", duration: 300 } // Optional: add a hide effect
+                items: "[title]",
+                show: { effect: "blind", duration: 300 },
+                hide: { effect: "explode", duration: 300 },
+                position: {
+                    my: "left+15 center",
+                    at: "left center"
+                }
+            }).mousemove(function(event) {
+                // Move tooltip with cursor
+                var tooltip = $(this).data("ui-tooltip");
+                tooltip.tooltip("option", "position", { my: "left+15 center", at: "left center", of: event });
             });
         });
     </script>
