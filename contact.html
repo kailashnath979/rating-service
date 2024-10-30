@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <link rel="stylesheet" href="driver_rating.css">
+    <style>
+        /* Add some styling for the Magic 8-Ball section */
+        #magic-8-ball-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #27ae60;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,22 +24,47 @@
             <h1>Need to Reach Out?</h1>
             <p>Got a question or just want to say hi? I'm all ears!</p>
         </header>
-
-        <!-- Magic 8-Ball Feature -->
         <section>
-            <p>Ask me anything, and I'll answer:</p>
-            <button id="magic-8-ball">Ask the 8-Ball!</button>
-            <p id="magic-response"></p>
+            <p>For all booking inquiries, please contact my agent. Just kidding! You can reach me at <strong>myfakeemail@example.com</strong>.</p>
+            <p>Want another ride? Call my personal hotline at <strong>1-800-IM-A-DRIVER</strong>. Just don’t expect me to pick you up!</p>
         </section>
-        <p>Disclaimer: Serious inquiries only! No free rides for bad jokes.</p>
-         <!-- Ready to Roll Feature -->
-        <section class="ready-to-roll">
-            <button id="ready-to-roll">Ready to Roll?</button>
-            <p id="quirky-line"></p> <!-- New line for quirky phrases -->
-            <div id="car-icon" class="car-icon"></div>
-        </section>
-    </div>
 
-    <script src="driver_rating.js"></script>
+        <!-- Magic 8-Ball Section -->
+        <div id="magic-8-ball-section">
+            <h2>Magic 8-Ball</h2>
+            <p id="instruction">Type your question in the box below and then click the Magic 8-Ball!</p>
+            <input type="text" id="question-input" placeholder="Ask your question here..." />
+            <button id="magic-8-ball">Ask the Magic 8-Ball</button>
+            <div id="response"></div>
+        </div>
+    </div>
+    <footer>
+        <p>Disclaimer: Serious inquiries only! No free rides for bad jokes.</p>
+    </footer>
+
+    <script>
+        document.getElementById('magic-8-ball').addEventListener('click', function() {
+            const questionInput = document.getElementById('question-input').value;
+
+            if (!questionInput) {
+                alert('Please enter a question before asking the Magic 8-Ball!');
+                return;
+            }
+
+            const responses = [
+                "Yes, definitely!",
+                "Ask again later.",
+                "No way!",
+                "Absolutely!",
+                "Cannot predict now.",
+                "Don't count on it.",
+                "Yes, in due time.",
+                "Very doubtful."
+            ];
+
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            document.getElementById('response').innerText = randomResponse;
+        });
+    </script>
 </body>
 </html>
