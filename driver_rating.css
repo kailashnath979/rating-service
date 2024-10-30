@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: url('cityscape-atlanta.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #e3f;
+    color: #eef;
     padding: 20px;
     position: relative; /* Ensure the overlay covers the body */
 }
