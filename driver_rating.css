@@ -142,3 +142,31 @@ button:hover {
     color: #e74c3c; /* Color for the quirky line */
     font-weight: bold;
 }
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contact-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.contact-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.ghost-promise {
+    margin-left: 10px; /* Space between button and text */
+    font-style: italic; /* Italicize the promise text */
+    color: #555; /* Slightly lighter color for contrast */
+}
