@@ -13,6 +13,20 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
 
+    // Array of quirky messages
+    const quirkyMessages = [
+        "Sending your thoughts...",
+        "Your feedback is zooming away! 🚀",
+        "Hold tight, your comments are on their way! 🏎️",
+        "Packing your thoughts for delivery! 📦",
+        "Your insights are taking a joyride! 🎢",
+        "Buckle up! Your feedback is hitting the road! 🚙",
+        "Your ratings are racing to their destination! 🏁",
+        "Hang on! We’re sending your feedback off! 📡",
+        "Your thoughts are in the fast lane! 🛣️",
+        "Sending your feedback with a sprinkle of magic! ✨"
+    ];
+
     // Loop through each rating section
     starRatings.forEach((ratingSection) => {
         const stars = ratingSection.querySelectorAll(".star");
@@ -85,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Display quirky message
-        quirkyMessage.textContent = "Sending your thoughts...";
+        // Display random quirky message
+        quirkyMessage.textContent = getRandomQuirkyMessage();
         moveCarIcon();
 
         // Send email with ratings and comments using EmailJS
@@ -115,5 +129,11 @@ document.addEventListener("DOMContentLoaded", function() {
             carIcon.style.transform = "translateX(0)";
             carIcon.style.visibility = 'hidden';
         }, 2000); // Adjust duration as needed
+    }
+
+    // Function to get a random quirky message
+    function getRandomQuirkyMessage() {
+        const randomIndex = Math.floor(Math.random() * quirkyMessages.length);
+        return quirkyMessages[randomIndex];
     }
 });
