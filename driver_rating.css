@@ -61,3 +61,65 @@ button:hover {
     border-radius: 5px;
     resize: none;
 }
+
+/* Magic 8-Ball Section */
+#magic-8-ball {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#magic-8-ball:hover {
+    background-color: #2980b9;
+}
+
+#magic-response {
+    font-style: italic;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Ready to Roll Button and Animation */
+#ready-to-roll {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#ready-to-roll:hover {
+    background-color: #d35400;
+}
+
+.car-icon {
+    width: 50px;
+    height: 50px;
+    background-image: url('car.png'); /* Add the car image */
+    background-size: contain;
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    visibility: hidden;
+}
+
+.car-icon.drive {
+    visibility: visible;
+    animation: drive-across 3s linear;
+}
+
+@keyframes drive-across {
+    0% {
+        left: -60px;
+    }
+    100% {
+        left: calc(100% + 60px);
+    }
+}
+
