@@ -123,3 +123,13 @@ button:hover {
     }
 }
 
+/* Styling for quirky line */
+#quirky-line {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 10px 0;
+    color: #e74c3c; /* Color for the quirky line */
+    font-weight: bold;
+}
+
+
