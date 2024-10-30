@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Display random quirky message
         quirkyMessage.textContent = getRandomQuirkyMessage();
-        moveCarIcon();
+        // moveCarIcon();
 
         // Send email with ratings and comments using EmailJS
         emailjs.send("service_rwzse8w", "template_goneji6", {
