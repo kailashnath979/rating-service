@@ -180,9 +180,9 @@ button:hover {
     position: absolute;
     left: 50%;
     bottom: 100%; /* put it on the top */
-    background-color: yellow;
+    background-color: rgba(0, 0, 0, 0.5);
     width: max-content;
-    opacity: 0;
+    display: none;
     -webkit-transition: opacity 0.75s ease-in-out;
   }
 
