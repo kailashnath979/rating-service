@@ -113,7 +113,7 @@
             duration: 200
         },
         position: {
-            my: "center+10 bottom-10", // Adjust the tooltip position relative to the star
+            my: "center+200 bottom-5", // Adjust the tooltip position relative to the star
             at: "center top"
         },
         content: function() {
@@ -129,7 +129,7 @@
     // Move tooltip with mouse, ensure it's tied to the individual star
     $(".star").on("mousemove", function(event) {
         $(this).tooltip("option", "position", { 
-            my: "center+10 bottom-10", // Adjust positioning
+            my: "center+200 bottom-5", // Adjust positioning
             at: "center top", 
             of: event 
         });
