@@ -101,46 +101,46 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="driver_rating.js"></script>
      <script>
-        $(document).ready(function() {
-            // Initialize tooltips with custom show effect
-            $(".star").tooltip({
-                items: "[title]",
-                show: { effect: "fadeIn", duration: 200 },
-                hide: { effect: "fadeOut", duration: 200 },
-                position: {
-                    my: "center bottom-10",
-                    at: "center top",
-                    collision: "fit",
-                }
-            });
+       $(document).ready(function() {
+    // Initialize tooltips
+    $(".star").tooltip({
+        items: "[title]",
+        show: {
+            effect: "fadeIn",
+            duration: 200
+        },
+        hide: {
+            effect: "fadeOut",
+            duration: 200
+        },
+        position: {
+            my: "center bottom-10",
+            at: "center top"
+        },
+        content: function() {
+            return $(this).attr("title");
+        }
+    });
 
-            // Show tooltip on hover
-            $(".star").on("mouseenter", function(event) {
-                const tooltip = $(this).data("ui-tooltip");
-                tooltip.tooltip("option", "position", { 
-                    my: "center bottom-10", 
-                    at: "center top", 
-                    of: event 
-                });
-                tooltip.tooltip("open");
-            });
+    // Show tooltip on hover
+    $(".star").on("mouseenter", function(event) {
+        $(this).tooltip("open");
+    });
 
-            // Move tooltip with cursor
-            $(".star").on("mousemove", function(event) {
-                const tooltip = $(this).data("ui-tooltip");
-                tooltip.tooltip("option", "position", { 
-                    my: "center bottom-10", 
-                    at: "center top", 
-                    of: event 
-                });
-            });
-
-            // Close tooltip on mouse leave
-            $(".star").on("mouseleave", function() {
-                const tooltip = $(this).data("ui-tooltip");
-                tooltip.tooltip("close");
-            });
+    // Move tooltip with mouse
+    $(".star").on("mousemove", function(event) {
+        $(this).tooltip("option", "position", { 
+            my: "center bottom-10", 
+            at: "center top", 
+            of: event 
         });
+    });
+
+    // Close tooltip on mouse leave
+    $(".star").on("mouseleave", function() {
+        $(this).tooltip("close");
+    });
+});
     </script>
 </body>
 </html>
