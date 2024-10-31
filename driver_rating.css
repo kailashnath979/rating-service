@@ -4,7 +4,7 @@ body {
     background-size: cover;
     color: #eef;
     padding: 20px;
-    position: relative; /* Ensure the overlay covers the body */
+    position: relative;
 }
 
 .overlay {
@@ -13,16 +13,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity */
-    z-index: -1; /* Keep it behind content */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 h1, h2 {
     text-align: center;
-    color: #fff; /* Change text color to white for better contrast */
+    color: #fff;
 }
 
-/* Star styles */
 .star {
     font-size: 2.5em;
     color: gray;
@@ -46,11 +45,8 @@ h1, h2 {
     font-size: 0.9em;
     padding: 5px 10px;
     border-radius: 5px;
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
     display: none;
+    margin-top: 5px;
 }
 
 button {
@@ -86,75 +82,6 @@ button:hover {
     resize: none;
 }
 
-/* Magic 8-Ball Section */
-#magic-8-ball {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#magic-8-ball:hover {
-    background-color: #2980b9;
-}
-
-#magic-response {
-    font-style: italic;
-    margin-top: 10px;
-    color: #333;
-}
-
-/* Ready to Roll Button and Animation */
-#ready-to-roll {
-    background-color: #e67e22;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-#ready-to-roll:hover {
-    background-color: #d35400;
-}
-
-.car-icon {
-    width: 50px;
-    height: 50px;
-    background-image: url('car.png'); /* Add the car image */
-    background-size: contain;
-    position: absolute;
-    left: -60px;
-    top: 50%;
-    visibility: hidden;
-}
-
-.car-icon.drive {
-    visibility: visible;
-    animation: drive-across 3s linear;
-}
-
-@keyframes drive-across {
-    0% {
-        left: -60px;
-    }
-    100% {
-        left: calc(100% + 60px);
-    }
-}
-
-/* Styling for quirky line */
-#quirky-line {
-    font-size: 1.2em;
-    text-align: center;
-    margin: 10px 0;
-    color: #e74c3c; /* Color for the quirky line */
-    font-weight: bold;
-}
 .contact-container {
     display: flex;
     align-items: center;
@@ -163,46 +90,16 @@ button:hover {
 }
 
 .contact-button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding for the button */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold text */
-    transition: background-color 0.3s; /* Smooth background color transition */
-    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .contact-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
-
-.ghost-promise {
-    margin-left: 10px; /* Space between button and text */
-    font-style: italic; /* Italicize the promise text */
-    color: #555; /* Slightly lighter color for contrast */
-}
-
-[data-tooltip] {
-    position: relative;
-  }
-
-  [data-tooltip]:after {
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 50%;
-    bottom: 100%; /* put it on the top */
-    background-color: rgba(0, 0, 0, 0.5);
-    width: max-content;
-    display: none;
-    -webkit-transition: opacity 0.75s ease-in-out;
-  }
-
-  [data-tooltip]:hover:after {
-    opacity: 1;
-  }
-
-  div[data-tooltip]:after {
-    left: 5px!important;
-  }
