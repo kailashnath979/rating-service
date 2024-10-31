@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="driver_rating.css">
-    <title>Trip Experience</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>Driver Rating Experience</title>
 </head>
 <body>
-    <div class="overlay"></div>
     <header>
         <h1>Rate Your Experience!</h1>
     </header>
@@ -18,129 +15,77 @@
         <div class="rating-container">
             <h2>How did I do?</h2>
 
-           <div class="rating-category">
-    <h3>How zen were you during our ride?</h3>
-    <div class="stars" data-category="chill">
-        <span class="star" data-value="1" title="Not even a sloth could enjoy this ride! 😱">★</span>
-        <span class="star" data-value="2" title="I’d rather sit on a cactus! 🌵😬">★</span>
-        <span class="star" data-value="3" title="Well, it was better than sitting in traffic! 🚦😅">★</span>
-        <span class="star" data-value="4" title="Not bad! I might let you take me to brunch! 🍽️😊">★</span>
-        <span class="star" data-value="5" title="You were the cherry on top of my Sunday! 🍒😄">★</span>
-    </div>
-    <p>Rate your zen levels! (1 = ‘I need a hot stone massage’ to 5 = ‘I’m basically a sloth in a hammock!’)</p>
-</div>
-
-<div class="rating-category">
-    <h3>Did I keep you waiting like a lost tourist?</h3>
-    <div class="stars" data-category="timeliness">
-        <span class="star" data-value="1" title="I was about to call for a rescue team! 🚨">★</span>
-        <span class="star" data-value="2" title="My clock must be broken! ⏰😅">★</span>
-        <span class="star" data-value="3" title="At least I got to enjoy the view! 👀">★</span>
-        <span class="star" data-value="4" title="Right on time! Did you have a GPS? 🗺️">★</span>
-        <span class="star" data-value="5" title="I was so on time, I was waiting for you! 😄">★</span>
-    </div>
-    <p>How would you rate my punctuality?</p>
-</div>
-
-<div class="rating-category">
-    <h3>How Much Do You Like Me?</h3>
-    <div class="stars" data-category="like">
-        <span class="star" data-value="1" title="I’d rather hug a cactus. 🌵">★</span>
-        <span class="star" data-value="2" title="You’re okay... I guess? 🤔">★</span>
-        <span class="star" data-value="3" title="You’re not bad! 👌">★</span>
-        <span class="star" data-value="4" title="You make me smile! 😊">★</span>
-        <span class="star" data-value="5" title="You’re the sprinkles on my cupcake! 🍰">★</span>
-    </div>
-    <p>How much do you like me?</p>
-</div>
-
-<div class="rating-category">
-    <h3>Another date?</h3>
-    <div class="stars" data-category="date">
-        <span class="star" data-value="1" title="Only if I’m extremely bored. 😅">★</span>
-        <span class="star" data-value="2" title="Maybe, but don’t count on it. 🤷">★</span>
-        <span class="star" data-value="3" title="I might consider it. 🤔">★</span>
-        <span class="star" data-value="4" title="Let’s plan something fun! 🎉">★</span>
-        <span class="star" data-value="5" title="I’d book a one-way ticket to paradise with you! 🌴">★</span>
-    </div>
-    <p>How likely are you to go on another date with me?</p>
-</div>
-
-<div class="rating-category">
-    <h3>How much fun did I bring to our ride?</h3>
-    <div class="stars" data-category="entertainment">
-        <span class="star" data-value="1" title="Did I even make you smile? 😐">★</span>
-        <span class="star" data-value="2" title="It was pretty dull. 😴">★</span>
-        <span class="star" data-value="3" title="A bit of fun here and there! 🎈">★</span>
-        <span class="star" data-value="4" title="I could see some giggles! 😂">★</span>
-        <span class="star" data-value="5" title="I should start my own comedy tour! 🎤">★</span>
-    </div>
-    <p>How entertaining was I during the trip?</p>
-</div>
-
-
-            <div class="comment-box">
-                <label for="comment">Drop your wittiest comment here:</label>
-                <textarea id="comment" placeholder="Tell me how you really feel!"></textarea>
+            <div class="rating-category">
+                <h3>How zen were you during our ride?</h3>
+                <div class="message"></div>
+                <div class="stars" data-category="chill">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
             </div>
 
-            <div id="quirky-message" style="text-align: center; font-size: 1.2em; margin: 20px 0;"></div>
+            <div class="rating-category">
+                <h3>Did I keep you waiting like a lost tourist?</h3>
+                <div class="message"></div>
+                <div class="stars" data-category="timeliness">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+            </div>
+
+            <div class="rating-category">
+                <h3>How Much Do You Like Me?</h3>
+                <div class="message"></div>
+                <div class="stars" data-category="like">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+            </div>
+
+            <div class="rating-category">
+                <h3>Another date?</h3>
+                <div class="message"></div>
+                <div class="stars" data-category="date">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+            </div>
+
+            <div class="rating-category">
+                <h3>How much fun did I bring to our ride?</h3>
+                <div class="message"></div>
+                <div class="stars" data-category="entertainment">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+            </div>
 
             <button id="submit-rating">Submit Rating</button>
         </div>
     </main>
 
-<footer>
-    
-    <div class="contact-container">
-        <a href="contact.html" class="contact-button">Contact Me</a>
-    </div>
-    <p class="silly-disclaimer">Disclaimer: I am not responsible for any bad jokes or dad jokes made during the trip!</p>
-</footer>
+    <footer>
+        <div class="contact-container">
+            <a href="contact.html" class="contact-button">Contact Me</a>
+        </div>
+        <p class="silly-disclaimer">Disclaimer: I am not responsible for any bad jokes or dad jokes made during the trip!</p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="driver_rating.js"></script>
-     <script>
-       $(document).ready(function() {
-    // Initialize tooltips
-    $(".star").tooltip({
-        items: "[title]",
-        show: {
-            effect: "fadeIn",
-            duration: 200
-        },
-        hide: {
-            effect: "fadeOut",
-            duration: 200
-        },
-        position: {
-            my: "center bottom-10",
-            at: "center top"
-        },
-        content: function() {
-            return $(this).attr("title");
-        }
-    });
-
-    // Show tooltip on hover
-    $(".star").on("mouseenter", function(event) {
-        $(this).tooltip("open");
-    });
-
-    // Move tooltip with mouse
-    $(".star").on("mousemove", function(event) {
-        $(this).tooltip("option", "position", { 
-            my: "center bottom-10", 
-            at: "center top", 
-            of: event 
-        });
-    });
-
-    // Close tooltip on mouse leave
-    $(".star").on("mouseleave", function() {
-        $(this).tooltip("close");
-    });
-});
-    </script>
 </body>
 </html>
