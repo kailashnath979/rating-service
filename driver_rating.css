@@ -22,10 +22,10 @@ h1, h2 {
     text-align: center;
     color: #fff; /* Change text color to white for better contrast */
 }
-.stars{
-    width: 100%;
-    height: 100%;
-    align: center;
+.stars {
+    display: flex; 
+    justify-content: center; 
+    width: 50%; 
 }
 /* Star styles */
 .star {
