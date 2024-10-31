@@ -23,9 +23,10 @@ h1, h2 {
     color: #fff; /* Change text color to white for better contrast */
 }
 .stars {
-    display: flex; 
-    justify-content: center; 
-    width: 50%; 
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    width: 50%; /* Set width to 50% */
+    margin: 0 auto; /* Auto margins on left and right for centering */
 }
 /* Star styles */
 .star {
