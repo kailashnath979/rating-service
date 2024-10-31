@@ -7,6 +7,7 @@ body {
     position: relative; /* Ensure the overlay covers the body */
 }
 
+
 .overlay {
     position: absolute;
     top: 0;
@@ -21,7 +22,11 @@ h1, h2 {
     text-align: center;
     color: #fff; /* Change text color to white for better contrast */
 }
-
+.stars{
+    width: 100%;
+    height: 100%;
+    align: center;
+}
 /* Star styles */
 .star {
     font-size: 2.5em;
