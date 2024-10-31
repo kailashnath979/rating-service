@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="driver_rating.css">
     <title>Trip Experience</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="overlay"></div>
@@ -20,6 +18,7 @@
 
            <div class="rating-category">
     <h3>How zen were you during our ride?</h3>
+               <div class="message"></div>
     <div class="stars" data-category="chill">
         <span class="star" data-value="1" title="Not even a sloth could enjoy this ride! 😱">★</span>
         <span class="star" data-value="2" title="I’d rather sit on a cactus! 🌵😬">★</span>
@@ -32,6 +31,7 @@
 
 <div class="rating-category">
     <h3>Did I keep you waiting like a lost tourist?</h3>
+    <div class="message"></div>
     <div class="stars" data-category="timeliness">
         <span class="star" data-value="1" title="I was about to call for a rescue team! 🚨">★</span>
         <span class="star" data-value="2" title="My clock must be broken! ⏰😅">★</span>
@@ -44,6 +44,7 @@
 
 <div class="rating-category">
     <h3>How Much Do You Like Me?</h3>
+    <div class="message"></div>
     <div class="stars" data-category="like">
         <span class="star" data-value="1" title="I’d rather hug a cactus. 🌵">★</span>
         <span class="star" data-value="2" title="You’re okay... I guess? 🤔">★</span>
@@ -56,6 +57,7 @@
 
 <div class="rating-category">
     <h3>Another date?</h3>
+    <div class="message"></div>
     <div class="stars" data-category="date">
         <span class="star" data-value="1" title="Only if I’m extremely bored. 😅">★</span>
         <span class="star" data-value="2" title="Maybe, but don’t count on it. 🤷">★</span>
@@ -68,6 +70,7 @@
 
 <div class="rating-category">
     <h3>How much fun did I bring to our ride?</h3>
+    <div class="message"></div>
     <div class="stars" data-category="entertainment">
         <span class="star" data-value="1" title="Did I even make you smile? 😐">★</span>
         <span class="star" data-value="2" title="It was pretty dull. 😴">★</span>
@@ -100,47 +103,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="driver_rating.js"></script>
-     <script>
-       $(document).ready(function() {
-    // Initialize tooltips
-    $(".star").tooltip({
-        items: "[title]",
-        show: {
-            effect: "fadeIn",
-            duration: 200
-        },
-        hide: {
-            effect: "fadeOut",
-            duration: 200
-        },
-        position: {
-            my: "center bottom-10",
-            at: "center top"
-        },
-        content: function() {
-            return $(this).attr("title");
-        }
-    });
-
-    // Show tooltip on hover
-    $(".star").on("mouseenter", function(event) {
-        $(this).tooltip("open");
-    });
-
-    // Move tooltip with mouse
-    $(".star").on("mousemove", function(event) {
-        $(this).tooltip("option", "position", { 
-            my: "center bottom-10", 
-            at: "center top", 
-            of: event 
-        });
-    });
-
-    // Close tooltip on mouse leave
-    $(".star").on("mouseleave", function() {
-        $(this).tooltip("close");
-    });
-});
-    </script>
 </body>
 </html>
