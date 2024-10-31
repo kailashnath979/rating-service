@@ -101,8 +101,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="driver_rating.js"></script>
      <script>
-       $(document).ready(function() {
-    // Initialize tooltips
+     $(document).ready(function() {
+    // Initialize tooltips for each star
     $(".star").tooltip({
         items: "[title]",
         show: {
@@ -114,7 +114,7 @@
             duration: 200
         },
         position: {
-            my: "center+100 bottom-10", // Adjusts the tooltip position
+            my: "center+10 bottom-10", // Adjust the tooltip position relative to the star
             at: "center top"
         },
         content: function() {
@@ -127,10 +127,10 @@
         $(this).tooltip("open");
     });
 
-    // Move tooltip with mouse
+    // Move tooltip with mouse, ensure it's tied to the individual star
     $(".star").on("mousemove", function(event) {
         $(this).tooltip("option", "position", { 
-            my: "center+10 bottom-10", // Keep this adjustment for cursor alignment
+            my: "center+10 bottom-10", // Adjust positioning
             at: "center top", 
             of: event 
         });
