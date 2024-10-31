@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
         moveCarIcon();
 
         emailjs.send("service_rwzse8w", "template_goneji6", {
-            rating_chill: selectedRatings["How zen were you during our ride?"],
+            rating_chill: selectedRatings["How zen were you during our trip?"],
             rating_timeliness: selectedRatings["Did I keep you waiting like a lost tourist?"],
             rating_experience: selectedRatings["How much fun did I bring to our ride?"],
             rating_like: selectedRatings["How Much Do You Like Me?"], 
